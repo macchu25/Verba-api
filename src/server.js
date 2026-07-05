@@ -19,7 +19,7 @@ const app = express();
 app.use(cors({
   origin: '*', // Allow all origins for easy frontend communication (can restrict later in production)
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type']
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
