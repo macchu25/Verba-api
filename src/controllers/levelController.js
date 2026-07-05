@@ -4,9 +4,11 @@ import Progress from '../models/Progress.js';
 
 export const getLevelsAndLessons = async (req, res) => {
   try {
-    const levels = await Level.find({}).sort({ order: 1 });
-    const lessons = await Lesson.find({});
-    const progress = await Progress.find({}).sort({ completedAt: -1 });
+    const [levels, lessons, progress] = await Promise.all([
+      Level.find({}).sort({ order: 1 }),
+      Lesson.find({}),
+      Progress.find({}).sort({ completedAt: -1 })
+    ]);
 
     res.json({
       success: true,
