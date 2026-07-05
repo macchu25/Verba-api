@@ -7,42 +7,54 @@ const router = express.Router();
 
 const levelsData = [
   {
-    code: 'A1',
-    name: 'Starter (Cơ bản)',
-    description: 'Dành cho người mới bắt đầu. Tập trung vào các chủ đề quen thuộc, cấu trúc câu cực kỳ đơn giản và từ vựng thông dụng hàng ngày.',
+    code: 'L1',
+    name: 'Rookie',
+    description: '• Độ dài: 5 - 8 từ\n• Ngữ pháp: Hiện tại đơn\n• Từ vựng: Mức 200 - 500 từ đơn giản\n• Chủ đề: Gia đình, trường học, động vật, màu sắc',
     order: 1,
   },
   {
-    code: 'A2',
-    name: 'Elementary (Sơ cấp)',
-    description: 'Học cách dịch các đoạn mô tả ngắn, hoạt động thường nhật và du lịch. Bắt đầu tiếp cận các thì quá khứ và tương lai đơn giản.',
+    code: 'L2',
+    name: 'Explorer',
+    description: '• Độ dài: 10 - 15 từ\n• Ngữ pháp: Quá khứ đơn\n• Từ vựng: Mức 500 - 1000 từ\n• Chủ đề: Du lịch, mua sắm, nhà hàng, công việc',
     order: 2,
   },
   {
-    code: 'B1',
-    name: 'Intermediate (Trung cấp)',
-    description: 'Chủ đề liên quan đến công việc, học tập, và sở thích. Làm quen với các câu ghép phức tạp hơn và cách diễn đạt ý kiến cá nhân.',
+    code: 'L3',
+    name: 'Traveler',
+    description: '• Độ dài: 20 - 30 từ\n• Ngữ pháp: Hiện tại hoàn thành\n• Từ vựng: Mức 1000 - 2000 từ\n• Chủ đề: Công nghệ, game, internet, trí tuệ nhân tạo (AI)',
     order: 3,
   },
   {
-    code: 'B2',
-    name: 'Upper-Intermediate (Trung thượng cấp)',
-    description: 'Các chủ đề mang tính học thuật và xã hội phổ thông (khoa học, môi trường, công nghệ). Tập trung vào từ vựng chuyên ngành cơ bản.',
+    code: 'L4',
+    name: 'Story Reader',
+    description: '• Độ dài: 50 - 80 từ\n• Ngữ pháp: Câu điều kiện (If-clause)\n• Từ vựng: Mức 2000 - 4000 từ\n• Chủ đề: Kinh doanh, startup, tài chính',
     order: 4,
   },
   {
-    code: 'C1',
-    name: 'Advanced (Cao cấp)',
-    description: 'Các văn bản học thuật sâu sắc, kinh tế, tâm lý học và triết học. Cấu trúc câu phức tạp, giàu tính biểu cảm và học thuật.',
+    code: 'L5',
+    name: 'Analyst',
+    description: '• Độ dài: 100 - 150 từ\n• Ngữ pháp: Mệnh đề quan hệ (Relative clauses)\n• Từ vựng: Mức 4000 - 6000 từ\n• Chủ đề: Tâm lý, khoa học, chính trị',
     order: 5,
+  },
+  {
+    code: 'L6',
+    name: 'Scholar',
+    description: '• Độ dài: 300 - 500 từ\n• Ngữ pháp: Đảo ngữ (Inversions)\n• Từ vựng: Mức 6000+ từ nâng cao\n• Chủ đề: Văn học, triết học, báo chí',
+    order: 6,
+  },
+  {
+    code: 'L7',
+    name: 'Native',
+    description: '• Đặc trưng: Thành ngữ (Idioms), Từ lóng (Slang), Văn học nghệ thuật\n• Chủ đề: Đa dạng, hội nhập văn hóa bản địa thực tế',
+    order: 7,
   },
 ];
 
 const lessonsData = [
-  // ================= A1 LESSONS =================
+  // ================= L1 LESSONS (Rookie) =================
   {
     title: 'Thói quen hằng ngày của Anna (Anna\'s Daily Routine)',
-    levelCode: 'A1',
+    levelCode: 'L1',
     englishText: 'My name is Anna. I am from Spain. I live in a small apartment with my cat, Luna. Every morning, I drink coffee and eat toast. I work in a library near my home. I like my job because I love books.',
     vietnameseText: 'Tên tôi là Anna. Tôi đến từ Tây Ban Nha. Tôi sống trong một căn hộ nhỏ với con mèo của tôi, Luna. Mỗi sáng, tôi uống cà phê và ăn bánh mì nướng. Tôi làm việc ở một thư viện gần nhà. Tôi thích công việc của mình vì tôi yêu sách.',
     keywordsEn: ['Anna', 'Spain', 'apartment', 'cat', 'Luna', 'coffee', 'toast', 'library', 'books'],
@@ -58,7 +70,7 @@ const lessonsData = [
   },
   {
     title: 'Gia đình nhỏ của tôi (My Small Family)',
-    levelCode: 'A1',
+    levelCode: 'L1',
     englishText: 'I have a small family. There are four people: my father, my mother, my brother, and me. My father is a doctor. My mother is a teacher. We live in a beautiful house in Hanoi. On weekends, we cook dinner together.',
     vietnameseText: 'Tôi có một gia đình nhỏ. Có bốn người: bố tôi, mẹ tôi, anh trai tôi và tôi. Bố tôi là bác sĩ. Mẹ tôi là giáo viên. Chúng tôi sống trong một ngôi nhà đẹp ở Hà Nội. Vào cuối tuần, chúng tôi nấu bữa tối cùng nhau.',
     keywordsEn: ['family', 'four people', 'father', 'mother', 'brother', 'doctor', 'teacher', 'Hanoi', 'cook dinner'],
@@ -73,7 +85,7 @@ const lessonsData = [
   },
   {
     title: 'Một con vật cưng mới (A New Pet)',
-    levelCode: 'A1',
+    levelCode: 'L1',
     englishText: 'I have a new puppy. His name is Max. Max is small and white. He has brown ears. Max sleeps under my bed. He likes to play with a red ball in the garden. I feed him twice a day.',
     vietnameseText: 'Tôi có một chú chó con mới. Tên của chú là Max. Max nhỏ và có màu trắng. Chú có đôi tai màu nâu. Max ngủ dưới giường của tôi. Chú thích chơi với một quả bóng màu đỏ trong vườn. Tôi cho chú ăn hai lần một ngày.',
     keywordsEn: ['puppy', 'Max', 'small', 'white', 'brown ears', 'under my bed', 'red ball', 'garden', 'feed'],
@@ -82,10 +94,13 @@ const lessonsData = [
       { word: 'puppy', ipa: '/ˈpʌp.i/', meaning: 'chó con', example: 'I have a new puppy.' },
       { word: 'garden', ipa: '/ˈɡɑːr.dən/', meaning: 'khu vườn', example: 'He plays in the garden.' }
     ],
+    grammar: [
+      { structure: 'Subject + have/has + N', explanation: 'Diễn tả quyền sở hữu đồ vật, động vật hoặc mối quan hệ.', example: 'I have a new puppy. He has brown ears.' }
+    ]
   },
   {
     title: 'Kỳ nghỉ hè tại Đà Lạt (My Summer Vacation in Da Lat)',
-    levelCode: 'A1',
+    levelCode: 'L1',
     englishText: 'Last summer, my family and I went to Da Lat for a short vacation. The city is famous for its cool weather, beautiful flowers, and quiet pine forests. We stayed in a lovely hotel near Xuan Huong Lake. Every morning, we woke up early to walk around the lake and breathe the fresh air. In the afternoon, we visited a local strawberry garden and picked fresh strawberries. We also tasted delicious grilled sweet potatoes and hot soy milk at the night market. I bought some beautiful flowers and small souvenirs for my classmates. The local people were very friendly and helpful. I felt extremely happy and relaxed during the trip. I hope to visit Da Lat again next summer with my friends.',
     vietnameseText: 'Mùa hè năm ngoái, gia đình tôi và tôi đã đi Đà Lạt cho một kỳ nghỉ ngắn. Thành phố này nổi tiếng với thời tiết mát mẻ, những loài hoa đẹp và những rừng thông yên bình. Chúng tôi đã ở trong một khách sạn dễ thương gần Hồ Xuân Hương. Mỗi buổi sáng, chúng tôi thức dậy sớm để đi dạo quanh hồ và hít thở không khí trong lành. Vào buổi chiều, chúng tôi đã ghé thăm một vườn dâu tây địa phương và tự tay hái những quả dâu tây tươi. Chúng tôi cũng đã nếm thử món khoai lang nướng thơm ngon và sữa đậu nành nóng ở chợ đêm. Tôi đã mua một số bông hoa đẹp và những món quà lưu niệm nhỏ cho các bạn cùng lớp của mình. Người dân địa phương rất thân thiện và nhiệt tình giúp đỡ. Tôi cảm thấy vô cùng hạnh phúc và thư giãn trong suốt chuyến đi. Tôi hy vọng sẽ được ghé thăm Đà Lạt một lần nữa vào mùa hè tới cùng với những người bạn của mình.',
     keywordsEn: ['summer', 'family', 'Da Lat', 'vacation', 'famous', 'weather', 'flowers', 'pine forests', 'hotel', 'lake', 'early', 'strawberry', 'grilled', 'sweet potatoes', 'soy milk', 'market', 'souvenirs', 'friendly', 'relaxed', 'trip'],
@@ -100,11 +115,54 @@ const lessonsData = [
       { structure: 'be famous for + N/V-ing', explanation: 'Nổi tiếng về cái gì.', example: 'The city is famous for its cool weather.' }
     ]
   },
+  {
+    title: 'Chú mèo con của tôi (My Little Cat) [NEW]',
+    levelCode: 'L1',
+    englishText: 'My cute cat sleeps on the red chair.',
+    vietnameseText: 'Con mèo dễ thương của tôi ngủ trên chiếc ghế màu đỏ.',
+    keywordsEn: ['cute', 'cat', 'sleeps', 'red chair'],
+    keywordsVi: ['dễ thương', 'mèo', 'ngủ', 'ghế màu đỏ'],
+    vocabulary: [
+      { word: 'cute', ipa: '/kjuːt/', meaning: 'dễ thương', example: 'She has a cute puppy.' },
+      { word: 'chair', ipa: '/tʃer/', meaning: 'cái ghế', example: 'Sit on this chair.' }
+    ],
+    grammar: [
+      { structure: 'Simple Present (S + V_s/es)', explanation: 'Chủ ngữ ngôi thứ ba số ít thêm s/es vào động từ ở thì hiện tại đơn.', example: 'My cat sleeps on the chair.' }
+    ]
+  },
+  {
+    title: 'Gia đình tôi (My Happy Family) [NEW]',
+    levelCode: 'L1',
+    englishText: 'I love my small and happy family.',
+    vietnameseText: 'Tôi yêu gia đình nhỏ bé và hạnh phúc của tôi.',
+    keywordsEn: ['love', 'small', 'happy family'],
+    keywordsVi: ['yêu', 'nhỏ bé', 'gia đình hạnh phúc'],
+    vocabulary: [
+      { word: 'happy', ipa: '/ˈhæp.i/', meaning: 'hạnh phúc', example: 'They are a happy couple.' }
+    ],
+    grammar: [
+      { structure: 'Subject + Verb + Object', explanation: 'Cấu trúc câu khẳng định cơ bản trong tiếng Anh.', example: 'I love my family.' }
+    ]
+  },
+  {
+    title: 'Trường học mới (My New School) [NEW]',
+    levelCode: 'L1',
+    englishText: 'We walk to school every morning.',
+    vietnameseText: 'Chúng tôi đi bộ đến trường học mỗi buổi sáng.',
+    keywordsEn: ['walk', 'school', 'every morning'],
+    keywordsVi: ['đi bộ', 'trường học', 'mỗi buổi sáng'],
+    vocabulary: [
+      { word: 'walk', ipa: '/wɑːk/', meaning: 'đi bộ', example: 'We walk in the park.' }
+    ],
+    grammar: [
+      { structure: 'walk to + Place', explanation: 'Đi bộ đến một địa điểm nào đó.', example: 'We walk to school.' }
+    ]
+  },
 
-  // ================= A2 LESSONS =================
+  // ================= L2 LESSONS (Explorer) =================
   {
     title: 'Một cuối tuần ở bãi biển (A Weekend at the Beach)',
-    levelCode: 'A2',
+    levelCode: 'L2',
     englishText: 'Last weekend, my friends and I decided to go to the beach. The weather was sunny and warm, so we packed our bags with towels, snacks, and sunscreen. We spent the whole afternoon swimming and playing volleyball. In the evening, we had dinner at a small restaurant near the ocean. It was a perfect day.',
     vietnameseText: 'Cuối tuần trước, tôi và bạn bè quyết định đi biển. Thời tiết nắng và ấm áp, vì vậy chúng tôi chuẩn bị túi với khăn tắm, đồ ăn nhẹ và kem chống nắng. Chúng tôi đã dành cả buổi chiều để bơi lội và chơi bóng chuyền. Vào buổi tối, chúng tôi ăn tối tại một nhà hàng nhỏ gần đại dương. Đó là một ngày hoàn hảo.',
     keywordsEn: ['beach', 'sunny', 'towels', 'snacks', 'sunscreen', 'swimming', 'volleyball', 'restaurant', 'ocean'],
@@ -121,7 +179,7 @@ const lessonsData = [
   },
   {
     title: 'Học một ngôn ngữ mới (Learning a New Language)',
-    levelCode: 'A2',
+    levelCode: 'L2',
     englishText: 'Learning a language is not easy, but it can be very exciting. First, you should practice every day. Listening to English songs and watching movies with subtitles are great ways to learn new words. You also need to practice speaking, even if you make mistakes. Keep going, and you will improve.',
     vietnameseText: 'Học một ngôn ngữ không dễ dàng, nhưng nó có thể rất thú vị. Trước tiên, bạn nên luyện tập mỗi ngày. Nghe các bài hát tiếng Anh và xem phim có phụ đề là những cách tuyệt vời để học từ mới. Bạn cũng cần luyện nói, ngay cả khi bạn mắc lỗi. Hãy tiếp tục, và bạn sẽ tiến bộ.',
     keywordsEn: ['learning', 'easy', 'exciting', 'practice', 'songs', 'movies', 'subtitles', 'speaking', 'mistakes', 'improve'],
@@ -138,7 +196,7 @@ const lessonsData = [
   },
   {
     title: 'Mua sắm tại chợ nông sản (Shopping at the Farmers Market)',
-    levelCode: 'A2',
+    levelCode: 'L2',
     englishText: 'Every Sunday morning, my sister and I visit the local farmers market. We love buying fresh vegetables, red strawberries, and sweet honey directly from the farmers. The prices are reasonable, and everything is organic. We also buy fresh flowers for our living room.',
     vietnameseText: 'Mỗi sáng Chủ nhật, chị gái tôi và tôi ghé thăm chợ nông sản địa phương. Chúng tôi thích mua rau củ tươi, dâu tây đỏ và mật ong ngọt ngào trực tiếp từ những người nông dân. Giá cả hợp lý và mọi thứ đều là hữu cơ. Chúng tôi cũng mua hoa tươi cho phòng khách của mình.',
     keywordsEn: ['farmers market', 'vegetables', 'strawberries', 'honey', 'farmers', 'prices', 'reasonable', 'organic', 'flowers'],
@@ -154,7 +212,7 @@ const lessonsData = [
   },
   {
     title: 'Lợi ích của việc Đi xe đạp (The Benefits of Riding a Bicycle)',
-    levelCode: 'A2',
+    levelCode: 'L2',
     englishText: 'Riding a bicycle has become a popular hobby for people of all ages in recent years. It is not only a simple way to travel around the city but also a great form of daily exercise. First, cycling regularly helps strengthen your heart and build strong leg muscles. It is a low-impact exercise, which means it is gentle on your joints compared to running. Second, using a bicycle is highly beneficial for our environment because it emits no greenhouse gases. By choosing to ride a bike instead of driving a car, you can actively reduce air pollution in your community. Finally, cycling allows you to spend more time outdoors and enjoy nature, which is a wonderful way to relieve stress after a busy workday. In conclusion, picking up a bicycle is a smart choice for your physical health, your mental well-being, and the protection of our planet.',
     vietnameseText: 'Đi xe đạp đã trở thành một sở thích phổ biến cho mọi lứa tuổi trong những năm gần đây. Nó không chỉ là một cách đơn giản để di chuyển xung quanh thành phố mà còn là một hình thức tập thể dục tuyệt vời hàng ngày. Trước tiên, việc đạp xe thường xuyên giúp tăng cường sức khỏe tim mạch và phát triển cơ chân săn chắc. Đây là một bài tập ít tác động, có nghĩa là nó nhẹ nhàng đối với các khớp của bạn so với chạy bộ. Thứ hai, sử dụng xe đạp rất có lợi cho môi trường của chúng ta vì nó không phát thải khí nhà kính. Bằng cách chọn đi xe đạp thay vì lái ô tô, bạn có thể tích cực giảm thiểu ô nhiễm không khí trong cộng đồng của mình. Cuối cùng, đạp xe cho phép bạn dành nhiều thời gian hơn ở ngoài trời và tận hưởng thiên nhiên, đây là một cách tuyệt vời để giải tỏa căng thẳng sau một ngày làm việc bận rộn. Tóm lại, chọn đi xe đạp là một quyết định thông minh cho sức khỏe thể chất, tinh thần của bạn và cho việc bảo vệ hành tinh của chúng ta.',
     keywordsEn: ['bicycle', 'popular hobby', 'all ages', 'simple way', 'daily exercise', 'cycling', 'regularly', 'strengthen', 'leg muscles', 'low-impact', 'joints', 'running', 'beneficial', 'environment', 'emits', 'greenhouse gases', 'reduce', 'air pollution', 'outdoors', 'nature', 'relieve stress', 'smart choice', 'well-being'],
@@ -169,247 +227,272 @@ const lessonsData = [
       { structure: 'compared to + Noun', explanation: 'So với... (dùng để so sánh tương phản hoặc đối chiếu).', example: 'It is gentle on joints compared to running.' }
     ]
   },
-
-  // ================= B1 LESSONS =================
   {
-    title: 'Sự trỗi dậy của làm việc từ xa (The Rise of Remote Work)',
-    levelCode: 'B1',
-    englishText: 'Remote work has become increasingly popular over the past few years. While many employees enjoy the flexibility of working from home, some find it challenging to maintain a healthy work-life balance. Without a clear separation between office and home, it is easy to work longer hours, which can eventually lead to burnout.',
-    vietnameseText: 'Làm việc từ xa đã trở nên ngày càng phổ biến trong vài năm qua. Trong khi nhiều nhân viên thích sự linh hoạt của việc làm việc tại nhà, một số người thấy việc duy trì cân bằng công việc và cuộc sống lành mạnh là một thách thức. Nếu không có sự phân biệt rõ ràng giữa văn phòng và nhà, rất dễ dẫn đến việc làm việc quá giờ, điều mà cuối cùng có thể dẫn đến kiệt sức.',
-    keywordsEn: ['remote work', 'popular', 'employees', 'flexibility', 'work-life balance', 'separation', 'office', 'burnout'],
-    keywordsVi: ['làm việc từ xa', 'phổ biến', 'nhân viên', 'linh hoạt', 'cân bằng', 'phân biệt', 'văn phòng', 'kiệt sức'],
+    title: 'Một bữa tối ngon miệng (A Good Dinner) [NEW]',
+    levelCode: 'L2',
+    englishText: 'Yesterday, we ate delicious seafood at a small local restaurant.',
+    vietnameseText: 'Hôm qua, chúng tôi đã ăn hải sản thơm ngon tại một nhà hàng địa phương nhỏ.',
+    keywordsEn: ['delicious', 'seafood', 'small local restaurant'],
+    keywordsVi: ['thơm ngon', 'hải sản', 'nhà hàng địa phương nhỏ'],
     vocabulary: [
-      { word: 'flexibility', ipa: '/ˌflek.səˈbɪl.ə.t̬i/', meaning: 'sự linh hoạt', example: 'Remote work offers a lot of flexibility.' },
-      { word: 'challenging', ipa: '/ˈtʃæl.ɪn.dʒɪŋ/', meaning: 'mang tính thách thức', example: 'It is challenging to study alone.' },
-      { word: 'burnout', ipa: '/ˈbɝːn.aʊt/', meaning: 'kiệt sức (do quá tải công việc)', example: 'Working 12 hours a day leads to burnout.' }
+      { word: 'seafood', ipa: '/ˈsiː.fuːd/', meaning: 'hải sản', example: 'I love fresh seafood.' }
     ],
     grammar: [
-      { structure: 'Present Perfect (Thì hiện tại hoàn thành)', explanation: 'Diễn tả hành động bắt đầu trong quá khứ và kéo dài/ảnh hưởng tới hiện tại.', example: 'Remote work has become popular.' },
-      { structure: 'While + Clause', explanation: 'Trong khi... (chỉ sự đối lập giữa hai mệnh đề).', example: 'While many enjoy flexibility, some find it challenging.' }
+      { structure: 'Simple Past of irregular verbs', explanation: 'Sử dụng dạng quá khứ của động từ bất quy tắc (eat -> ate).', example: 'We ate delicious seafood yesterday.' }
     ]
   },
   {
-    title: 'Khám phá vũ trụ (Exploring the Universe)',
-    levelCode: 'B1',
-    englishText: 'Space exploration has always fascinated humanity. For decades, scientists have sent satellites and rovers to other planets to search for signs of life. In recent years, private companies have also entered the space industry, aiming to make space travel accessible to ordinary people. The future of space exploration looks promising.',
-    vietnameseText: 'Khám phá không gian luôn cuốn hút nhân loại. Trong nhiều thập kỷ, các nhà khoa học đã gửi các vệ tinh và xe tự hành đến các hành tinh khác để tìm kiếm dấu hiệu của sự sống. Trong những năm gần đây, các công ty tư nhân cũng đã tham gia vào ngành công nghiệp vũ trụ, nhằm mục đích làm cho chuyến du hành vũ trụ có thể tiếp cận được với những người bình thường. Tương lai của việc khám phá không gian trông đầy hứa hẹn.',
-    keywordsEn: ['space exploration', 'fascinated', 'scientists', 'satellites', 'rovers', 'planets', 'signs of life', 'private companies', 'ordinary people', 'promising'],
-    keywordsVi: ['khám phá không gian', 'cuốn hút', 'nhà khoa học', 'vệ tinh', 'xe tự hành', 'hành tinh', 'sự sống', 'công ty tư nhân', 'bình thường', 'hứa hẹn'],
+    title: 'Chuyến đi Đà Lạt (Trip to Da Lat) [NEW]',
+    levelCode: 'L2',
+    englishText: 'My sister bought many beautiful souvenirs during our summer holiday.',
+    vietnameseText: 'Chị gái tôi đã mua nhiều món quà lưu niệm đẹp đẽ trong suốt kỳ nghỉ hè của chúng tôi.',
+    keywordsEn: ['bought', 'beautiful souvenirs', 'summer holiday'],
+    keywordsVi: ['đã mua', 'quà lưu niệm đẹp đẽ', 'kỳ nghỉ hè'],
     vocabulary: [
-      { word: 'fascinate', ipa: '/ˈfæs.ən.eɪt/', meaning: 'cuốn hút, làm mê hoặc', example: 'Science has always fascinated me.' },
-      { word: 'rover', ipa: '/ˈroʊ.vɚ/', meaning: 'xe tự hành (khám phá hành tinh)', example: 'The Mars rover is collecting rock samples.' },
-      { word: 'accessible', ipa: '/əkˈses.ə.bəl/', meaning: 'có thể tiếp cận được', example: 'Computers are accessible to most students now.' }
+      { word: 'souvenir', ipa: '/ˌsuː.vəˈnɪr/', meaning: 'quà lưu niệm', example: 'I bought many souvenirs.' }
     ],
     grammar: [
-      { structure: 'aim to + Verb', explanation: 'Đặt mục tiêu làm gì đó.', example: 'They are aiming to make space travel accessible.' }
+      { structure: 'Simple Past of buy', explanation: 'Quá khứ đơn của động từ buy là bought.', example: 'My sister bought souvenirs.' }
     ]
   },
   {
-    title: 'Tầm quan trọng của Đọc sách (The Importance of Reading Books)',
-    levelCode: 'B1',
-    englishText: 'Reading books regularly is highly beneficial for our mental development. Not only does it expand our vocabulary, but it also stimulates our imagination and reduces stress after a long day. In addition, reading introduces us to different cultures and perspectives, helping us become more empathetic.',
-    vietnameseText: 'Đọc sách thường xuyên mang lại lợi ích cao cho sự phát triển tinh thần của chúng ta. Nó không chỉ mở rộng vốn từ vựng mà còn kích thích trí tưởng tượng và giảm căng thẳng sau một ngày dài. Ngoài ra, việc đọc sách còn giới thiệu cho chúng ta những nền văn hóa và góc nhìn khác nhau, giúp chúng ta trở nên đồng cảm hơn.',
-    keywordsEn: ['reading books', 'beneficial', 'mental development', 'vocabulary', 'imagination', 'reduces stress', 'different cultures', 'perspectives', 'empathetic'],
-    keywordsVi: ['đọc sách', 'lợi ích', 'phát triển tinh thần', 'từ vựng', 'trí tưởng tượng', 'giảm căng thẳng', 'văn hóa khác nhau', 'góc nhìn', 'đồng cảm'],
+    title: 'Ngày đầu tiên đi làm (First Day of Work) [NEW]',
+    levelCode: 'L2',
+    englishText: 'He joined a dynamic technology startup last Monday as a designer.',
+    vietnameseText: 'Anh ấy đã gia nhập một công ty khởi nghiệp công nghệ năng động vào thứ Hai tuần trước với tư cách là một nhà thiết kế.',
+    keywordsEn: ['joined', 'dynamic technology startup', 'designer'],
+    keywordsVi: ['đã gia nhập', 'khởi nghiệp công nghệ năng động', 'nhà thiết kế'],
     vocabulary: [
-      { word: 'beneficial', ipa: '/ˌben.əˈfɪʃ.əl/', meaning: 'có lợi, có ích', example: 'Reading is highly beneficial.' },
-      { word: 'stimulate', ipa: '/ˈstɪm.jə.leɪt/', meaning: 'kích thích, khuyến khích', example: 'It stimulates our imagination.' },
-      { word: 'empathetic', ipa: '/ˌem.pəˈθet̬.ɪk/', meaning: 'đồng cảm, thấu cảm', example: 'Reading helps us become more empathetic.' }
+      { word: 'joined', ipa: '/dʒɔɪnd/', meaning: 'đã gia nhập', example: 'He joined the company.' },
+      { word: 'startup', ipa: '/ˈstɑːrt.ʌp/', meaning: 'công ty khởi nghiệp', example: 'They launched a new startup.' }
     ],
     grammar: [
-      { structure: 'Not only... but also...', explanation: 'Không những... mà còn... (dùng để bổ sung thêm ý nghĩa mang tính tương đương).', example: 'Not only does it expand vocabulary, but it also stimulates imagination.' }
-    ]
-  },
-  {
-    title: 'Du lịch bền vững (Sustainable Tourism)',
-    levelCode: 'B1',
-    englishText: 'Sustainable tourism aims to minimize the negative impacts of travel on local environments and communities. Travelers are encouraged to respect local customs, purchase locally made products, and choose eco-friendly accommodations. By traveling responsibly, we can preserve beautiful destinations for future generations.',
-    vietnameseText: 'Du lịch bền vững nhằm mục đích giảm thiểu các tác động tiêu cực của việc đi lại đối với môi trường và cộng đồng địa phương. Du khách được khuyến khích tôn trọng phong tục địa phương, mua các sản phẩm sản xuất tại địa phương và chọn các chỗ ở thân thiện với môi trường. Bằng cách du lịch có trách nhiệm, chúng ta có thể bảo tồn các điểm đến đẹp cho các thế hệ tương lai.',
-    keywordsEn: ['sustainable tourism', 'minimize', 'negative impacts', 'environments', 'communities', 'respect customs', 'locally made', 'eco-friendly', 'preserve'],
-    keywordsVi: ['du lịch bền vững', 'giảm thiểu', 'tác động tiêu cực', 'môi trường', 'cộng đồng', 'tôn trọng phong tục', 'sản xuất tại địa phương', 'thân thiện với môi trường', 'bảo tồn'],
-    vocabulary: [
-      { word: 'minimize', ipa: '/ˈmɪn.ə.maɪz/', meaning: 'giảm thiểu tối đa', example: 'We should minimize waste.' },
-      { word: 'eco-friendly', ipa: '/ˈiː.koʊˌfrend.li/', meaning: 'thân thiện với môi trường', example: 'They choose eco-friendly hotels.' },
-      { word: 'preserve', ipa: '/prɪˈzɝːv/', meaning: 'bảo tồn, bảo giữ', example: 'We must preserve historic sites.' }
-    ],
-    grammar: [
-      { structure: 'Passive Voice (Bị động)', explanation: 'Diễn tả chủ thể chịu tác động của hành động khác.', example: 'Travelers are encouraged to respect local customs.' }
-    ]
-  },
-  {
-    title: 'Thư điện tử phản hồi VSTEP (VSTEP B1 Reply Email)',
-    levelCode: 'B1',
-    englishText: 'Dear Mr. John Smith,\n\nThank you very much for your invitation to the annual digital education conference next month. I am extremely honored to receive this invitation and would love to attend.\n\nRegarding your request, I would be delighted to share my experience in online teaching and digital course design. Over the past three years, I have successfully developed several virtual learning programs that helped over five thousand students. I believe these practical insights will be highly beneficial to the conference attendees.\n\nCould you please send me the detailed schedule and information about the presentation duration? I need to prepare my slides and materials accordingly.\n\nI look forward to hearing from you soon.\n\nSincerely yours,\nMary Davis',
-    vietnameseText: 'Kính gửi ông John Smith,\n\nCảm ơn ông rất nhiều vì lời mời tham dự hội nghị giáo dục kỹ thuật số thường niên vào tháng tới. Tôi vô cùng vinh dự khi nhận được lời mời này và rất muốn tham dự.\n\nVề yêu cầu của ông, tôi rất vui lòng chia sẻ kinh nghiệm của mình trong việc giảng dạy trực tuyến và thiết kế khóa học kỹ thuật số. Trong ba năm qua, tôi đã phát triển thành công một số chương trình học tập ảo giúp ích cho hơn năm nghìn học sinh. Tôi tin rằng những góc nhìn thực tế này sẽ rất có lợi cho những người tham dự hội nghị.\n\nÔng có thể vui lòng gửi cho tôi lịch trình chi tiết và thông tin về thời lượng thuyết trình được không? Tôi cần chuẩn bị các trang trình chiếu và tài liệu của mình cho phù hợp.\n\nTôi rất mong sớm nhận được phản hồi từ ông.\n\nTrân trọng,\nMary Davis',
-    keywordsEn: ['John Smith', 'invitation', 'annual', 'digital education', 'conference', 'honored', 'attend', 'share', 'experience', 'online teaching', 'virtual learning', 'five thousand students', 'practical insights', 'beneficial', 'schedule', 'presentation duration', 'prepare slides', 'look forward', 'Mary Davis'],
-    keywordsVi: ['John Smith', 'lời mời', 'thường niên', 'giáo dục kỹ thuật số', 'hội nghị', 'vinh dự', 'tham dự', 'chia sẻ', 'kinh nghiệm', 'giảng dạy trực tuyến', 'học tập ảo', 'năm nghìn học sinh', 'góc nhìn thực tế', 'có lợi', 'lịch trình', 'thời lượng thuyết trình', 'chuẩn bị trang trình chiếu', 'mong đợi', 'Mary Davis'],
-    vocabulary: [
-      { word: 'honored', ipa: '/ˈɒn.əd/', meaning: 'vinh dự, tự hào', example: 'I am honored to speak here today.' },
-      { word: 'delighted', ipa: '/dɪˈlaɪ.tɪd/', meaning: 'vui mừng, hân hạnh', example: 'I would be delighted to attend the event.' },
-      { word: 'insight', ipa: '/ˈɪn.saɪt/', meaning: 'góc nhìn thực tế, sự thấu hiểu', example: 'His book gives deep insights into the subject.' }
-    ],
-    grammar: [
-      { structure: 'look forward to + V-ing/Noun', explanation: 'Rất mong đợi điều gì đó xảy ra.', example: 'I look forward to hearing from you soon.' },
-      { structure: 'help + someone + (to) Verb', explanation: 'Giúp đỡ ai làm việc gì.', example: 'Programs that helped over five thousand students.' }
-    ]
-  },
-  {
-    title: 'Lịch sử của Trà trên Thế giới (The History of Tea)',
-    levelCode: 'B1',
-    englishText: 'Tea is one of the most widely consumed beverages in the world, second only to water. The history of tea began in ancient China, where it was originally used as a medicinal drink. According to legend, Emperor Shennong discovered tea in 2737 BC when wild leaves accidentally fell into his pot of boiling water. Over the centuries, tea drinking developed into an important cultural ritual, spread throughout Asia, and was eventually introduced to Europe in the sixteenth century by Portuguese traders.\n\nToday, tea plays a crucial role in many social traditions around the globe. In Great Britain, the practice of having "afternoon tea" emerged in the nineteenth century and remains a beloved social custom. In Japan, the traditional tea ceremony is a highly structured ritual that emphasizes mindfulness, respect, and harmony. \n\nFrom a scientific perspective, drinking tea offers numerous health benefits. Green and black teas are rich in antioxidants, which help protect cells from damage and lower the risk of chronic heart conditions. Additionally, tea contains a moderate amount of caffeine that improves focus and mental alertness without causing the nervousness associated with coffee. Whether you prefer a hot cup of black tea in the morning or an iced herbal tea in the afternoon, this ancient beverage continues to bring comfort and connection to millions of people.',
-    vietnameseText: 'Trà là một trong những thức uống được tiêu thụ rộng rãi nhất trên thế giới, chỉ đứng sau nước. Lịch sử của trà bắt đầu ở Trung Quốc cổ đại, nơi ban đầu nó được sử dụng như một loại đồ uống để chữa bệnh. Theo truyền thuyết, Hoàng đế Thần Nông đã phát hiện ra trà vào năm 2737 trước Công nguyên khi những chiếc lá hoang dã vô tình rơi vào ấm nước sôi của ông. Qua nhiều thế kỷ, việc uống trà đã phát triển thành một nghi lễ văn hóa quan trọng, lan rộng khắp châu Á và cuối cùng được các thương nhân Bồ Đào Nha giới thiệu vào châu Âu vào thế kỷ mười sáu.\n\nNgày nay, trà đóng một vai trò quan trọng trong nhiều truyền thống xã hội trên toàn cầu. Ở Vương quốc Anh, thói quen dùng "trà chiều" xuất hiện vào thế kỷ mười chín và vẫn là một phong tục xã hội được yêu thích. Ở Nhật Bản, trà đạo truyền thống là một nghi lễ có cấu trúc chặt chẽ nhằm nhấn mạnh đến sự tỉnh thức, tôn trọng và hài hòa.\n\nDưới góc nhìn khoa học, uống trà mang lại nhiều lợi ích cho sức khỏe. Trà xanh và trà đen rất giàu chất chống oxy hóa, giúp bảo vệ tế bào khỏi bị tổn thương và giảm nguy cơ mắc các bệnh tim mạch mãn tính. Ngoài ra, trà chứa một lượng caffeine vừa phải giúp cải thiện sự tập trung và tỉnh táo của tinh thần mà không gây ra sự bồn chồn như cà phê. Cho dù bạn thích một tách trà đen nóng vào buổi sáng hay một tách trà thảo mộc đá vào buổi chiều, thức uống cổ xưa này vẫn tiếp tục mang lại sự thoải mái và kết nối cho hàng triệu người.',
-    keywordsEn: ['tea', 'beverages', 'water', 'history', 'ancient China', 'medicinal drink', 'Emperor Shennong', 'leaves', 'boiling water', 'cultural ritual', 'Asia', 'Europe', 'Portuguese', 'social traditions', 'Great Britain', 'afternoon tea', 'custom', 'Japan', 'tea ceremony', 'mindfulness', 'respect', 'harmony', 'antioxidants', 'cells', 'chronic heart', 'caffeine', 'focus', 'alertness', 'nervousness', 'coffee', 'comfort', 'connection'],
-    keywordsVi: ['trà', 'thức uống', 'nước', 'lịch sử', 'Trung Quốc cổ đại', 'đồ uống chữa bệnh', 'Hoàng đế Thần Nông', 'lá', 'nước sôi', 'nghi lễ văn hóa', 'châu Á', 'châu Âu', 'thương nhân Bồ Đào Nha', 'truyền thống xã hội', 'Vương quốc Anh', 'trà chiều', 'phong tục', 'Nhật Bản', 'trà đạo', 'sự tỉnh thức', 'tôn trọng', 'hài hòa', 'chất chống oxy hóa', 'tế bào', 'tim mạch mãn tính', 'caffeine', 'tập trung', 'tỉnh táo', 'bồn chồn', 'cà phê', 'thoải mái', 'kết nối'],
-    vocabulary: [
-      { word: 'beverage', ipa: '/ˈbev.ɚ.ɪdʒ/', meaning: 'thức uống, đồ uống', example: 'Water is the best beverage.' },
-      { word: 'ceremony', ipa: '/ˈser.ə.mə.ni/', meaning: 'nghi lễ, buổi lễ', example: 'They attended the traditional tea ceremony.' },
-      { word: 'alertness', ipa: '/əˈlɝːt.nəs/', meaning: 'sự tỉnh táo, cảnh giác', example: 'Caffeine increases mental alertness.' }
-    ],
-    grammar: [
-      { structure: 'second only to + Noun', explanation: 'Chỉ đứng sau cái gì (trong một bảng xếp hạng).', example: 'Tea is widely consumed, second only to water.' },
-      { structure: 'without + Verb-ing', explanation: 'Mà không làm gì đó.', example: 'It improves focus without causing nervousness.' }
+      { structure: 'Simple Past of regular verbs', explanation: 'Động từ thường thêm đuôi -ed trong câu khẳng định ở quá khứ đơn.', example: 'He joined the startup.' }
     ]
   },
 
-  // ================= B2 LESSONS =================
+  // ================= L3 LESSONS (Traveler) =================
   {
-    title: 'Đạo đức của Trí tuệ Nhân tạo (The Ethics of Artificial Intelligence)',
-    levelCode: 'B2',
-    englishText: 'The rapid advancement of artificial intelligence has sparked intense debate among experts regarding its ethical implications. Proponents argue that AI can significantly enhance productivity and solve complex global problems. Conversely, critics express concerns about job displacement and the potential for algorithms to perpetuate existing societal biases.',
-    vietnameseText: 'Sự tiến bộ nhanh chóng của trí tuệ nhân tạo đã làm dấy lên cuộc tranh luận gay gắt giữa các chuyên gia về những hàm ý đạo đức của nó. Những người ủng hộ cho rằng AI có thể nâng cao năng suất đáng kể và giải quyết các vấn đề phức tạp trên toàn cầu. Ngược lại, các nhà phê bình bày tỏ mối quan ngại về việc mất việc làm và khả năng các thuật toán làm trầm trọng thêm những định kiến xã hội hiện có.',
-    keywordsEn: ['rapid advancement', 'artificial intelligence', 'intense debate', 'ethical implications', 'proponents', 'productivity', 'critics', 'job displacement', 'algorithms', 'societal biases'],
-    keywordsVi: ['tiến bộ nhanh chóng', 'trí tuệ nhân tạo', 'tranh luận gay gắt', 'hàm ý đạo đức', 'người ủng hộ', 'năng suất', 'nhà phê bình', 'mất việc làm', 'thuật toán', 'định kiến xã hội'],
+    title: 'Kỷ nguyên Trí tuệ Nhân tạo (The Era of AI) [NEW]',
+    levelCode: 'L3',
+    englishText: 'Scientists have developed highly advanced artificial intelligence systems that have successfully assisted humans in solving complex mathematical problems.',
+    vietnameseText: 'Các nhà khoa học đã phát triển các hệ thống trí tuệ nhân tạo cực kỳ tiên tiến, đã hỗ trợ thành công con người trong việc giải quyết các bài toán phức tạp.',
+    keywordsEn: ['developed', 'advanced artificial intelligence', 'assisted', 'solving complex'],
+    keywordsVi: ['đã phát triển', 'trí tuệ nhân tạo cực kỳ tiên tiến', 'đã hỗ trợ', 'giải quyết phức tạp'],
     vocabulary: [
-      { word: 'implication', ipa: '/ˌɪm.pləˈkeɪ.ʃən/', meaning: 'hàm ý, tác động', example: 'What are the ethical implications of this technology?' },
-      { word: 'proponent', ipa: '/prəˈpoʊ.nənt/', meaning: 'người ủng hộ', example: 'He is a leading proponent of clean energy.' },
-      { word: 'displacement', ipa: '/dɪˈspleɪs.mənt/', meaning: 'sự dịch chuyển, mất việc', example: 'Automation causes job displacement.' },
-      { word: 'bias', ipa: '/ˈbaɪ.əs/', meaning: 'định kiến, thiên vị', example: 'We must prevent algorithmic bias.' }
+      { word: 'artificial intelligence', ipa: '/ˌɑːr.t̬ɪ.fɪʃ.əl ɪnˈtel.ə.dʒəns/', meaning: 'trí tuệ nhân tạo', example: 'AI is changing the world.' },
+      { word: 'assisted', ipa: '/əˈsɪs.tɪd/', meaning: 'được hỗ trợ, trợ giúp', example: 'The software assisted the users.' }
     ],
     grammar: [
-      { structure: 'Regarding + Noun', explanation: 'Về mặt, liên quan tới khía cạnh nào đó.', example: 'Debates regarding its ethical implications.' },
-      { structure: 'Conversely / On the contrary', explanation: 'Trái lại (dùng ở đầu câu để thể hiện sự đối lập mạnh mẽ).', example: 'Conversely, critics express concerns.' }
+      { structure: 'Present Perfect (Thì hiện tại hoàn thành)', explanation: 'Diễn tả hành động đã hoàn thành tính đến thời điểm hiện tại mà không đề cập thời gian cụ thể.', example: 'Scientists have developed AI systems.' }
     ]
   },
   {
-    title: 'Biến đổi khí hậu và Năng lượng tái tạo (Climate Change and Renewable Energy)',
-    levelCode: 'B2',
-    englishText: 'Climate change is one of the most pressing issues facing our planet today. The burning of fossil fuels has led to an increase in greenhouse gas emissions, causing global temperatures to rise. To combat this crisis, countries must transition to renewable energy sources like wind and solar power, which emit no carbon dioxide.',
-    vietnameseText: 'Biến đổi khí hậu là một trong những vấn đề cấp bách nhất mà hành tinh của chúng ta đang phải đối mặt hiện nay. Việc đốt nhiên liệu hóa thạch đã dẫn đến sự gia tăng phát thải khí nhà kính, khiến nhiệt độ toàn cầu tăng lên. Để chống lại cuộc khủng hoảng này, các quốc gia phải chuyển đổi sang các nguồn năng lượng tái tạo như năng lượng gió và mặt trời, những nguồn không phát thải khí carbon dioxide.',
-    keywordsEn: ['climate change', 'pressing issues', 'fossil fuels', 'greenhouse gas', 'emissions', 'global temperatures', 'combat', 'transition', 'renewable energy', 'solar power', 'carbon dioxide'],
-    keywordsVi: ['biến đổi khí hậu', 'vấn đề cấp bách', 'nhiên liệu hóa thạch', 'khí nhà kính', 'phát thải', 'nhiệt độ toàn cầu', 'chống lại', 'chuyển đổi', 'năng lượng tái tạo', 'năng lượng mặt trời', 'carbon dioxide'],
+    title: 'Sự phổ biến của Video Games (The Popularity of Video Games) [NEW]',
+    levelCode: 'L3',
+    englishText: 'Over the past decade, video games have evolved from simple entertainment into a massive global industry with millions of active players.',
+    vietnameseText: 'Trong thập kỷ qua, trò chơi điện tử đã phát triển từ hình thức giải trí đơn giản thành một ngành công nghiệp toàn cầu khổng lồ với hàng triệu người chơi tích cực.',
+    keywordsEn: ['decade', 'games have evolved', 'entertainment', 'massive global industry'],
+    keywordsVi: ['thập kỷ', 'trò chơi đã phát triển', 'giải trí', 'ngành công nghiệp toàn cầu khổng lồ'],
     vocabulary: [
-      { word: 'pressing', ipa: '/ˈpres.ɪŋ/', meaning: 'cấp bách, khẩn thiết', example: 'There is a pressing need for action.' },
-      { word: 'emissions', ipa: '/iˈmɪʃ.ənz/', meaning: 'lượng khí phát thải', example: 'We must reduce carbon emissions.' },
-      { word: 'transition', ipa: '/trænˈzɪʃ.ən/', meaning: 'sự chuyển đổi', example: 'The transition to clean energy takes time.' }
+      { word: 'evolved', ipa: '/ɪˈvɑːlvd/', meaning: 'phát triển, tiến hóa', example: 'The technology has evolved rapidly.' },
+      { word: 'entertainment', ipa: '/ˌen.t̬ɚˈteɪn.mənt/', meaning: 'sự giải trí', example: 'Cinema is a popular form of entertainment.' }
     ],
     grammar: [
-      { structure: 'To + Verb (đầu câu)', explanation: 'Để đạt được mục đích gì (chỉ mục đích).', example: 'To combat this crisis, countries must act.' }
+      { structure: 'Present Perfect with "Over the past..."', explanation: 'Dùng thì hiện tại hoàn thành với cụm chỉ khoảng thời gian kéo dài tới hiện tại.', example: 'Over the past decade, video games have evolved.' }
     ]
   },
   {
-    title: 'Tầm quan trọng của Đa dạng sinh học (The Value of Biodiversity)',
-    levelCode: 'B2',
-    englishText: 'Biodiversity is critical for maintaining healthy ecosystems, which supply us with clean oxygen, food, and medicine. Unfortunately, human activities such as deforestation and pollution are accelerating species extinction at an alarming rate. Protecting habitats is essential to safeguard this natural wealth and preserve ecological balance.',
-    vietnameseText: 'Đa dạng sinh học là cực kỳ quan trọng để duy trì các hệ sinh thái lành mạnh, nơi cung cấp cho chúng ta oxy sạch, thực phẩm và thuốc men. Thật không may, các hoạt động của con người như phá rừng và ô nhiễm đang đẩy nhanh sự tuyệt chủng của các loài với tốc độ đáng báo động. Bảo vệ môi trường sống là điều cần thiết để bảo vệ nguồn tài sản tự nhiên này và giữ gìn sự cân bằng sinh thái.',
-    title: 'Tiến trình Năng lượng Tái tạo (VSTEP B2 Renewable Energy Evolution)',
-    levelCode: 'B2',
-    englishText: 'The global transition toward renewable energy sources has emerged as one of the defining challenges of the twenty-first century. For decades, industrial economies have relied heavily on fossil fuels, such as coal, oil, and natural gas, to drive growth. However, the accumulation of carbon dioxide and other greenhouse gases in the atmosphere has led to severe climate crises, forcing nations to reconsider their energy policies.\n\nIn recent years, wind and solar power technologies have advanced significantly, leading to a substantial drop in production costs. Many countries have successfully integrated large-scale solar farms and wind turbines into their national grids. These clean energy alternatives offer a promising solution to mitigate global warming while reducing reliance on imported fossil fuels.\n\nDespite these advancements, the transition is not without obstacles. One of the primary limitations of renewable energy is its intermittency, as solar panel generation depends on sunlight and wind turbines require consistent wind. Consequently, energy storage technologies, such as advanced battery systems, must be developed to store excess electricity for periods when production is low. \n\nFurthermore, upgrading traditional electricity grids to handle decentralized, fluctuating energy inputs requires massive financial investment and political will. Therefore, achieving a fully sustainable energy model requires not only technological innovation but also global cooperation and supportive regulatory frameworks.',
-    vietnameseText: 'Sự chuyển đổi toàn cầu hướng tới các nguồn năng lượng tái tạo đã nổi lên như một trong những thách thức mang tính quyết định của thế kỷ hai mươi mốt. Trong nhiều thập kỷ, các nền kinh tế công nghiệp đã phụ thuộc nhiều vào nhiên liệu hóa thạch, chẳng hạn như than đá, dầu mỏ và khí đốt tự nhiên, để thúc đẩy tăng trưởng. Tuy nhiên, sự tích tụ của khí carbon dioxide và các khí nhà kính khác trong bầu khí quyển đã dẫn đến các cuộc khủng hoảng khí hậu nghiêm trọng, buộc các quốc gia phải xem xét lại chính sách năng lượng của họ.\n\nTrong những năm gần đây, công nghệ năng lượng gió và mặt trời đã có những bước tiến đáng kể, dẫn đến sự sụt giảm đáng kể chi phí sản xuất. Nhiều quốc gia đã tích hợp thành công các trang trại năng lượng mặt trời quy mô lớn và tuabin gió vào lưới điện quốc gia của họ. Những giải pháp thay thế năng lượng sạch này mang lại một giải pháp hứa hẹn để giảm thiểu sự nóng lên toàn cầu đồng thời giảm bớt sự phụ thuộc vào nhiên liệu hóa thạch nhập khẩu.\n\nBất chấp những tiến bộ này, quá trình chuyển đổi không phải là không có những trở ngại. Một trong những hạn chế chính của năng lượng tái tạo là tính gián đoạn của nó, vì sản lượng pin mặt trời phụ thuộc vào ánh sáng mặt trời và tuabin gió đòi hỏi gió ổn định. Do đó, các công nghệ lưu trữ năng lượng, chẳng hạn như các hệ thống pin tiên tiến, phải được phát triển để lưu trữ lượng điện dư thừa cho những thời kỳ sản xuất thấp.\n\nHơn nữa, việc nâng cấp lưới điện truyền thống để xử lý các nguồn năng lượng phi tập trung, biến động đòi hỏi sự đầu tư tài chính lớn và ý chí chính trị. Do đó, để đạt được một mô hình năng lượng bền vững hoàn toàn không chỉ đòi hỏi sự đổi mới công nghệ mà còn cả sự hợp tác toàn cầu và các khung pháp lý mang tính hỗ trợ.',
-    keywordsEn: ['transition', 'renewable energy', 'fossil fuels', 'accumulation', 'climate crises', 'advanced significantly', 'integrated', 'national grids', 'mitigate global warming', 'reliance', 'obstacles', 'intermittency', 'consistent', 'energy storage', 'decentralized', 'fluctuating', 'financial investment', 'sustainable energy model', 'cooperation', 'regulatory frameworks'],
-    keywordsVi: ['chuyển đổi', 'năng lượng tái tạo', 'nhiên liệu hóa thạch', 'sự tích tụ', 'khủng hoảng khí hậu', 'tiến bộ đáng kể', 'tích hợp', 'lưới điện quốc gia', 'giảm thiểu nóng lên toàn cầu', 'sự phụ thuộc', 'trở ngại', 'tính gián đoạn', 'ổn định', 'lưu trữ năng lượng', 'phi tập trung', 'biến động', 'đầu tư tài chính', 'mô hình năng lượng bền vững', 'hợp tác', 'khung pháp lý'],
+    title: 'Internet thay đổi cuộc sống (How Internet Changed Us) [NEW]',
+    levelCode: 'L3',
+    englishText: 'The Internet has completely transformed the way people communicate, share knowledge, and run businesses around the globe since its inception.',
+    vietnameseText: 'Internet đã hoàn toàn thay đổi cách mọi người giao tiếp, chia sẻ kiến thức và vận hành doanh nghiệp trên toàn cầu kể từ khi ra đời.',
+    keywordsEn: ['transformed', 'communicate', 'share knowledge', 'run businesses', 'inception'],
+    keywordsVi: ['thay đổi hoàn toàn', 'giao tiếp', 'chia sẻ kiến thức', 'vận hành doanh nghiệp', 'ra đời'],
     vocabulary: [
-      { word: 'conserve', ipa: '/kənˈsɝːv/', meaning: 'bảo tồn, bảo giữ', example: 'We must conserve our forests.' },
-      { word: 'intermittency', ipa: '/ˌɪn.təˈmɪt.ən.si/', meaning: 'tính gián đoạn, không liên tục', example: 'The main drawback of wind power is its intermittency.' },
-      { word: 'fluctuating', ipa: '/ˈflʌk.tʃu.eɪ.tɪŋ/', meaning: 'dao động, biến động liên tục', example: 'The prices are fluctuating wildly.' }
+      { word: 'transform', ipa: '/trænsˈfɔːrm/', meaning: 'biến đổi sâu sắc, thay đổi hoàn toàn', example: 'Technology has transformed our lives.' },
+      { word: 'inception', ipa: '/ɪnˈsep.ʃən/', meaning: 'sự khởi đầu, bắt đầu', example: 'Since its inception, the project has grown.' }
     ],
     grammar: [
-      { structure: 'require not only A but also B', explanation: 'Yêu cầu không chỉ A mà còn cả B (nhấn mạnh cả hai điều kiện bắt buộc).', example: 'It requires not only technological innovation but also global cooperation.' },
-      { structure: 'be not without + Noun', explanation: 'Không phải là không có... (cách diễn đạt song phủ để khẳng định gián tiếp).', example: 'The transition is not without obstacles.' }
-    ]
-  },
-  {
-    title: 'Phân tích Làm việc Từ xa (VSTEP B2 Essay on Remote Work)',
-    levelCode: 'B2',
-    englishText: 'The rapid expansion of remote work has fundamentally transformed the modern professional landscape. On the one hand, employees enjoy significant benefits, including the elimination of daily commutes, flexible working hours, and a better ability to manage personal responsibilities. These factors often lead to higher job satisfaction and improved morale.\n\nOn the other hand, remote work introduces substantial challenges that organizations must address. The lack of face-to-face interaction can lead to feelings of isolation and hinder team collaboration. Furthermore, when the boundaries between professional and personal life blur, employees often struggle to disconnect, leading to overtime work and eventual burnout.\n\nTherefore, achieving a successful remote work model requires a balanced approach. Employers must establish clear communication guidelines and respect employees\' personal time to maintain long-term productivity.',
-    vietnameseText: 'Sự mở rộng nhanh chóng của làm việc từ xa đã thay đổi căn bản bối cảnh chuyên nghiệp hiện đại. Một mặt, nhân viên được hưởng những lợi ích đáng kể, bao gồm việc loại bỏ việc đi lại hàng ngày, giờ làm việc linh hoạt và khả năng quản lý các trách nhiệm cá nhân tốt hơn. Những yếu tố này thường dẫn đến sự hài lòng trong công việc cao hơn và tinh thần được cải thiện.\n\nMặt khác, làm việc từ xa đặt ra những thách thức lớn mà các tổ chức phải giải quyết. Việc thiếu tương tác trực tiếp có thể dẫn đến cảm giác bị cô lập và cản trở sự hợp tác trong nhóm. Hơn nữa, khi ranh giới giữa cuộc sống chuyên nghiệp và cá nhân bị mờ nhạt, nhân viên thường đấu tranh để ngắt kết nối, dẫn đến làm việc quá giờ và cuối cùng là kiệt sức.\n\nDo đó, để đạt được một mô hình làm việc từ xa thành công đòi hỏi một cách tiếp cận cân bằng. Người sử dụng lao động phải thiết lập các nguyên tắc giao tiếp rõ ràng và tôn trọng thời gian cá nhân của nhân viên để duy trì năng suất lâu dài.',
-    keywordsEn: ['rapid expansion', 'remote work', 'fundamentally transformed', 'modern professional landscape', 'employees', 'significant benefits', 'commutes', 'flexible hours', 'responsibilities', 'satisfaction', 'morale', 'substantial challenges', 'face-to-face interaction', 'isolation', 'collaboration', 'boundaries', 'blur', 'disconnect', 'overtime', 'burnout', 'balanced approach', 'communication guidelines', 'respect personal time', 'productivity'],
-    keywordsVi: ['mở rộng nhanh chóng', 'làm việc từ xa', 'thay đổi căn bản', 'bối cảnh chuyên nghiệp hiện đại', 'nhân viên', 'lợi ích đáng kể', 'đi lại hàng ngày', 'giờ làm việc linh hoạt', 'trách nhiệm cá nhân', 'sự hài lòng', 'tinh thần', 'thách thức lớn', 'tương tác trực tiếp', 'cô lập', 'hợp tác', 'ranh giới', 'mờ nhạt', 'ngắt kết nối', 'làm việc quá giờ', 'kiệt sức', 'tiếp cận cân bằng', 'nguyên tắc giao tiếp', 'tôn trọng thời gian cá nhân', 'năng suất lâu dài'],
-    vocabulary: [
-      { word: 'fundamentally', ipa: '/ˌfʌn.dəˈmen.təl.i/', meaning: 'về cơ bản, cơ bản là', example: 'Society has fundamentally changed.' },
-      { word: 'commute', ipa: '/kəˈmjuːt/', meaning: 'hành trình đi lại làm việc hàng ngày', example: 'My daily commute takes an hour.' },
-      { word: 'isolation', ipa: '/ˌaɪ.səˈleɪ.ʃən/', meaning: 'sự cô lập, cách ly', example: 'Being isolated from team can cause stress.' }
-    ],
-    grammar: [
-      { structure: 'On the one hand... On the other hand...', explanation: 'Một mặt... mặt khác... (dùng để phân tích hai khía cạnh đối lập của một vấn đề).', example: 'On the one hand, they enjoy benefits. On the other hand, it has challenges.' },
-      { structure: 'struggle + to-Verb', explanation: 'Gặp khó khăn, chật vật làm việc gì.', example: 'Employees often struggle to disconnect.' }
+      { structure: 'Present Perfect with "since"', explanation: 'Dùng thì hiện tại hoàn thành để diễn tả hành động bắt đầu từ một mốc thời gian trong quá khứ.', example: 'The Internet has transformed lives since its inception.' }
     ]
   },
 
-  // ================= C1 LESSONS =================
+  // ================= L4 LESSONS (Story Reader) =================
   {
-    title: 'Thách thức của Di cư Đô thị (The Challenges of Urban Migration)',
-    levelCode: 'C1',
-    englishText: 'The rapid expansion of urban migration has emerged as a defining socioeconomic challenge for contemporary policymakers. Globally, metropolitan centers act as powerful magnets, drawing diverse populations from rural regions in pursuit of superior employment opportunities, specialized education, and advanced healthcare. Historically, industrial hubs have functioned as primary catalysts for innovation and financial prosperity. In the modern era, megacities continue to serve as dynamic engines of economic growth, generating the vast majority of global productivity.\n\nNonetheless, this massive influx of residents into already congested metropolitan centers creates severe developmental and infrastructural complications. As municipal authorities struggle to accommodate the rapidly expanding population, public services face unprecedented strain. This is commonly manifested in severe traffic congestion, the decay of transport networks, and inadequate waste management systems. Furthermore, the skyrocketing demand for housing has caused real estate prices to escalate dramatically, effectively pushing lower-income families into substandard living conditions or suburban slums.\n\nBeyond physical infrastructure, rapid urbanization exerts profound social and psychological pressures on city dwellers. While urban environments offer a wealth of social interactions, they simultaneously contribute to increased stress, anxiety, and social alienation. The competitive and fast-paced nature of urban life, coupled with the erosion of traditional community support systems, has contributed to a rise in mental health issues. Only through comprehensive, long-term planning and collaborative governance can future cities remain spaces of sustainable opportunity and high quality of life for all residents.',
-    vietnameseText: 'Sự mở rộng nhanh chóng của di cư đô thị đã nổi lên như một thách thức kinh tế xã hội mang tính quyết định đối với các nhà hoạch định chính sách đương đại. Trên toàn cầu, các trung tâm đô thị lớn đóng vai trò như những thỏi nam châm mạnh mẽ, thu hút lượng dân cư đa dạng từ các vùng nông thôn để tìm kiếm cơ hội việc làm vượt trội, giáo dục chuyên biệt và chăm sóc sức khỏe tiên tiến. Về mặt lịch sử, các trung tâm công nghiệp đã hoạt động như những chất xúc tác chính cho sự đổi mới và thịnh vượng tài chính. Trong kỷ nguyên hiện đại, các siêu đô thị tiếp tục đóng vai trò là động cơ năng động của tăng trưởng kinh tế, tạo ra phần lớn năng suất toàn cầu.\n\nMặc dù vậy, dòng người di cư ồ ạt này vào các trung tâm đô thị vốn đã đông đúc đã tạo ra những rắc rối nghiêm trọng về phát triển và cơ sở hạ tầng. Khi các chính quyền thành phố phải vật lộn để đáp ứng quy mô dân số mở rộng nhanh chóng, các dịch vụ công cộng phải đối mặt với áp lực chưa từng có. Điều này thường được biểu hiện ở tình trạng ùn tắc giao thông nghiêm trọng, sự xuống cấp của mạng lưới giao thông và hệ thống quản lý chất thải không đầy đủ. Hơn nữa, nhu cầu về nhà ở tăng vọt đã khiến giá bất động sản leo thang chóng mặt, đẩy các gia đình có thu nhập thấp vào điều kiện sống dưới mức tiêu chuẩn hoặc các khu ổ chuột ở ngoại ô.\n\nVượt ra ngoài cơ sở hạ tầng vật chất, đô thị hóa nhanh chóng gây ra những áp lực sâu sắc về mặt xã hội và tâm lý đối với cư dân thành phố. Trong khi môi trường đô thị mang lại nhiều tương tác xã hội, chúng đồng thời góp phần làm gia tăng căng thẳng, lo âu và sự xa lánh xã hội. Bản chất cạnh tranh và nhịp độ nhanh của cuộc sống đô thị, cùng với sự xói mòn của các hệ thống hỗ trợ cộng đồng truyền thống, đã góp phần làm gia tăng các vấn đề về sức khỏe tâm thần. Chỉ thông qua quy hoạch toàn diện, dài hạn và quản trị hợp tác, các thành phố tương lai mới có thể duy trì được không gian cơ hội bền vững và chất lượng cuộc sống cao cho tất cả cư dân.',
-    keywordsEn: ['urban migration', 'multifaceted challenge', 'policymarkers', 'magnets', 'cultural exchange', 'simultaneously', 'grapple', 'overpopulation', 'infrastructural decay', 'housing costs', 'sustainable', 'holistic approach', 'social equity', 'environmental stewardship', 'unprecedented strain', 'skyrocketing', 'alienation', 'socioeconomic divide', 'marginalized'],
-    keywordsVi: ['di cư đô thị', 'thách thức đa diện', 'nhà hoạch định chính sách', 'thỏi nam châm', 'trao đổi văn hóa', 'đồng thời', 'vật lộn', 'quá tải dân số', 'cơ sở hạ tầng', 'chi phí nhà ở', 'bền vững', 'tiếp cận toàn diện', 'công bằng xã hội', 'quản lý môi trường', 'áp lực chưa từng có', 'tăng vọt', 'xa lánh', 'phân chia kinh tế xã hội', 'bị cô lập'],
+    title: 'Đầu tư Khởi nghiệp (Investing in a Startup) [NEW]',
+    levelCode: 'L4',
+    englishText: 'If a new startup wants to secure funding from venture capitalists, the founders must pitch a highly scalable business model. If they fail to demonstrate a clear path to profitability within three years, investors will likely reject their proposal. However, if they build a dedicated team and protect their unique intellectual property, their chances of commercial success will increase significantly.',
+    vietnameseText: 'Nếu một công ty khởi nghiệp mới muốn đảm bảo nguồn tài chính từ các nhà đầu tư mạo hiểm, những người sáng lập phải trình bày một mô hình kinh doanh có khả năng mở rộng cao. Nếu họ không chứng minh được con đường rõ ràng dẫn đến lợi nhuận trong vòng ba năm, các nhà đầu tư rất có thể sẽ từ chối đề xuất của họ. Tuy nhiên, nếu họ xây dựng một đội ngũ tận tụy và bảo vệ tài sản trí tuệ độc đáo của mình, cơ hội thành công thương mại của họ sẽ tăng lên đáng kể.',
+    keywordsEn: ['secure funding', 'venture capitalists', 'scalable', 'profitability', 'intellectual property', 'commercial success'],
+    keywordsVi: ['đảm bảo nguồn tài chính', 'nhà đầu tư mạo hiểm', 'khả năng mở rộng', 'lợi nhuận', 'tài sản trí tuệ', 'thành công thương mại'],
     vocabulary: [
-      { word: 'multifaceted', ipa: '/ˌmʌl.tiˈfæs.ɪ.t̬ɪd/', meaning: 'nhiều khía cạnh, đa diện', example: 'The problem is multifaceted and hard to solve.' },
-      { word: 'grapple', ipa: '/ˈɡræp.əl/', meaning: 'vật lộn, đấu tranh giải quyết', example: 'The government is grappling with inflation.' },
-      { word: 'stewardship', ipa: '/ˈstuː.ɚd.ʃɪp/', meaning: 'quản lý, coi sóc (bảo vệ môi trường)', example: 'Environmental stewardship is crucial for our future.' }
+      { word: 'venture capitalist', ipa: '/ˈven.tʃɚ ˈkæp.ɪ.t̬əl.ɪst/', meaning: 'nhà đầu tư mạo hiểm', example: 'Venture capitalists fund high-risk startups.' },
+      { word: 'scalable', ipa: '/ˈskeɪ.lə.bəl/', meaning: 'có thể mở rộng quy mô', example: 'Software businesses are highly scalable.' },
+      { word: 'intellectual property', ipa: '/ˌɪn.t̬əlˈek.tʃu.əl ˈprɑː.pɚ.t̬i/', meaning: 'tài sản trí tuệ', example: 'Patents protect your intellectual property.' }
     ],
     grammar: [
-      { structure: 'Active participle / Relative clause reduction', explanation: 'Rút gọn mệnh đề quan hệ dạng chủ động (N + Ving).', example: 'Issues facing our planet (issues which face our planet).' },
-      { structure: 'Holistic approach', explanation: 'Cách tiếp cận toàn diện (từ vựng học thuật cao cấp C1).', example: 'Sustainable development requires a holistic approach.' }
+      { structure: 'Conditional Type 1 (Câu điều kiện loại 1)', explanation: 'Diễn tả giả định có thật hoặc có thể xảy ra ở hiện tại hoặc tương lai (If + S + V_pres, S + will/must + V_bare).', example: 'If they fail to demonstrate, investors will reject their proposal.' }
     ]
   },
   {
-    title: 'Tâm lý học Nhận thức và Trí nhớ (Cognitive Psychology and Memory)',
-    levelCode: 'C1',
-    englishText: 'Memory consolidation is a highly intricate neurobiological process through which fragile, newly acquired details are transformed into stable, long-term representations. This phenomenon depends heavily on the interaction between the hippocampus and the neocortex. Disruptions in this synaptic consolidation pathway can lead to various cognitive impairments, including anterograde amnesia.',
-    vietnameseText: 'Củng cố trí nhớ là một quá trình sinh học thần kinh cực kỳ phức tạp, qua đó những chi tiết mới thu nhận được còn mong manh sẽ được chuyển đổi thành các biểu hiện ổn định lâu dài. Hiện tượng này phụ thuộc nhiều vào sự tương tác giữa hồi hải mã và vỏ não mới. Sự gián đoạn trong con đường củng cố synap này có thể dẫn đến các suy giảm nhận thức khác nhau, bao gồm cả chứng mất trí nhớ về sau.',
-    keywordsEn: ['memory consolidation', 'intricate', 'neurobiological process', 'fragile', 'newly acquired', 'stable', 'long-term representations', 'interaction', 'hippocampus', 'neocortex', 'disruptions', 'synaptic consolidation', 'cognitive impairments', 'anterograde amnesia'],
-    keywordsVi: ['củng cố trí nhớ', 'phức tạp', 'sinh học thần kinh', 'mong manh', 'mới thu nhận', 'ổn định', 'lâu dài', 'tương tác', 'hồi hải mã', 'vỏ não mới', 'gián đoạn', 'củng cố synap', 'suy giảm nhận thức', 'mất trí nhớ về sau'],
+    title: 'Quản lý Tài chính Cá nhân (Personal Finance Management) [NEW]',
+    levelCode: 'L4',
+    englishText: 'If young professionals invested a portion of their income in index funds early, they would accumulate substantial wealth over time. If you do not track your daily expenses, you will struggle to build a stable emergency fund. If the government lowered interest rates, consumers would borrow more money to buy houses and cars. Therefore, sound financial planning is crucial for long-term security.',
+    vietnameseText: 'Nếu các chuyên gia trẻ đầu tư một phần thu nhập của họ vào các quỹ chỉ số từ sớm, họ sẽ tích lũy được khối tài sản đáng kể theo thời gian. Nếu bạn không theo dõi các chi phí hàng ngày của mình, bạn sẽ chật vật để xây dựng một quỹ khẩn cấp ổn định. Nếu chính phủ giảm lãi suất, người tiêu dùng sẽ vay nhiều tiền hơn để mua nhà và xe hơi. Do đó, lập kế hoạch tài chính hợp lý là rất quan trọng cho sự an toàn lâu dài.',
+    keywordsEn: ['young professionals', 'invested', 'index funds', 'accumulate', 'substantial wealth', 'track expenses', 'emergency fund', 'interest rates'],
+    keywordsVi: ['chuyên gia trẻ', 'đầu tư', 'quỹ chỉ số', 'tích lũy', 'tài sản đáng kể', 'theo dõi chi phí', 'quỹ khẩn cấp', 'lãi suất'],
     vocabulary: [
-      { word: 'consolidation', ipa: '/kənˌsɑː.lɪˈdeɪ.ʃən/', meaning: 'sự củng cố, làm vững chắc', example: 'Memory consolidation takes place during sleep.' },
-      { word: 'intricate', ipa: '/ˈɪn.trə.kət/', meaning: 'phức tạp, tinh vi', example: 'The watch mechanism is extremely intricate.' },
-      { word: 'impairment', ipa: '/ɪmˈper.mənt/', meaning: 'sự suy giảm, khiếm khuyết', example: 'Cognitive impairment is common in old age.' }
+      { word: 'accumulate', ipa: '/əˈkjuː.mjə.leɪt/', meaning: 'tích lũy, gom lại', example: 'You will accumulate wealth by saving.' },
+      { word: 'index fund', ipa: '/ˈɪn.deks ˌfʌnd/', meaning: 'quỹ chỉ số', example: 'Index funds track the stock market.' }
     ],
     grammar: [
-      { structure: 'Through which / By which', explanation: 'Mà qua đó... (cấu trúc mệnh đề quan hệ nâng cao với giới từ).', example: 'A process through which fragile details are transformed.' }
+      { structure: 'Conditional Type 2 (Câu điều kiện loại 2)', explanation: 'Diễn tả giả định không có thật hoặc trái ngược với thực tế ở hiện tại (If + S + V_past, S + would/could + V_bare).', example: 'If young professionals invested early, they would accumulate wealth.' }
+    ]
+  },
+
+  // ================= L5 LESSONS (Analyst) =================
+  {
+    title: 'Hiệu ứng Kính giả thuyết (The Placebo Effect in Psychology) [NEW]',
+    levelCode: 'L5',
+    englishText: 'The placebo effect, which has puzzled cognitive scientists for decades, is a fascinating psychological phenomenon where patients experience genuine health improvements after taking inactive substances. Patients who believe they are receiving a real medical treatment often trigger self-healing mechanisms in their brains, which significantly reduces pain and anxiety. This powerful connection between the mind and body, which shows how expectation shapes physical reality, challenges traditional pharmaceutical research. Researchers who study this effect argue that psychological support is just as important as chemical intervention. Consequently, doctors who understand this dynamic can enhance patient care by combining empathy with standard medical treatments.',
+    vietnameseText: 'Hiệu ứng giả dược, điều đã làm đau đầu các nhà khoa học nhận thức trong nhiều thập kỷ, là một hiện tượng tâm lý thú vị nơi bệnh nhân trải qua những cải thiện sức khỏe thực sự sau khi sử dụng các chất không hoạt động. Những bệnh nhân tin rằng họ đang nhận được một phương pháp điều trị y tế thực sự thường kích hoạt các cơ chế tự chữa lành trong não của họ, điều này giúp giảm đau và lo lắng một cách đáng kể. Mối liên kết mạnh mẽ này giữa tâm trí và cơ thể, điều cho thấy sự kỳ vọng định hình thực tế vật lý như thế nào, thách thức nghiên cứu dược phẩm truyền thống. Các nhà nghiên cứu nghiên cứu hiệu ứng này cho rằng hỗ trợ tâm lý cũng quan trọng như sự can thiệp của hóa chất. Do đó, các bác sĩ hiểu được động lực này có thể nâng cao hiệu quả chăm sóc bệnh nhân bằng cách kết hợp sự đồng cảm với các phương pháp điều trị y tế tiêu chuẩn.',
+    keywordsEn: ['placebo effect', 'cognitive scientists', 'genuine', 'inactive substances', 'self-healing', 'expectation', 'pharmaceutical', 'intervention', 'empathy'],
+    keywordsVi: ['hiệu ứng giả dược', 'khoa học nhận thức', 'thực sự', 'chất không hoạt động', 'tự chữa lành', 'sự kỳ vọng', 'dược phẩm', 'can thiệp', 'sự đồng cảm'],
+    vocabulary: [
+      { word: 'placebo', ipa: '/pləˈsiː.boʊ/', meaning: 'giả dược (thuốc thử vô hại)', example: 'Half of the patients received a placebo.' },
+      { word: 'cognitive', ipa: '/ˈkɑːɡ.nə.t̬ɪv/', meaning: 'thuộc về nhận thức', example: 'Cognitive therapy helps change thought patterns.' },
+      { word: 'genuine', ipa: '/ˈdʒen.ju.ɪn/', meaning: 'thật, thành thật, đích thực', example: 'There has been a genuine improvement in his work.' }
+    ],
+    grammar: [
+      { structure: 'Defining & Non-defining Relative Clauses', explanation: 'Sử dụng mệnh đề quan hệ xác định (who, that) và không xác định (dùng dấu phẩy và đại từ quan hệ như which, who) để bổ sung thông tin cho danh từ.', example: 'The placebo effect, which has puzzled scientists, is... Patients who believe...' }
     ]
   },
   {
-    title: 'Thuyết quyết định ngôn ngữ (Linguistic Determinism)',
-    levelCode: 'C1',
-    englishText: 'Linguistic determinism posits that the structure of a language conditions the cognitive processes of its speakers. According to this hypothesis, language does not merely serve as a medium for conveying pre-existing thoughts, but rather shapes the very conceptual framework within which thoughts are formulated. Critics, however, contend that cognitive categories exist independently of grammatical structures.',
-    vietnameseText: 'Thuyết quyết định ngôn ngữ cho rằng cấu trúc của một ngôn ngữ quy định các quá trình nhận thức của người nói ngôn ngữ đó. Theo giả thuyết này, ngôn ngữ không chỉ đóng vai trò là phương tiện truyền tải những suy nghĩ đã có sẵn, mà đúng hơn là định hình nên chính khuôn khổ khái niệm mà trong đó các suy nghĩ được hình thành. Tuy nhiên, các nhà phê bình cho rằng các danh mục nhận thức tồn tại độc lập với các cấu trúc ngữ pháp.',
-    keywordsEn: ['linguistic determinism', 'posits', 'cognitive processes', 'hypothesis', 'medium', 'conveying', 'conceptual framework', 'formulated', 'critics', 'grammatical structures'],
-    keywordsVi: ['thuyết quyết định ngôn ngữ', 'cho rằng', 'quá trình nhận thức', 'giả thuyết', 'phương tiện', 'truyền tải', 'khuôn khổ khái niệm', 'hình thành', 'nhà phê bình', 'cấu trúc ngữ pháp'],
+    title: 'Cơ chế của Thuyết Tương đối (The Mechanics of General Relativity) [NEW]',
+    levelCode: 'L5',
+    englishText: 'Albert Einstein, who revolutionized modern physics in 1915, introduced the theory of general relativity, which explains gravity as the warping of spacetime. According to this theory, massive cosmic objects like stars and planets, which possess immense mass, bend the fabric of space around them. This curvature dictates the paths that nearby objects must follow, which explains why the Earth orbits the Sun. The theory also predicted the existence of gravitational waves, which are ripples in spacetime caused by violent cosmic collisions. Scientists who worked at the LIGO observatory finally detected these elusive ripples in 2015, which confirmed Einstein\'s predictions and opened a new window into astrophysics.',
+    vietnameseText: 'Albert Einstein, người đã cách mạng hóa vật lý hiện đại vào năm 1915, đã giới thiệu thuyết tương đối tổng quát, thuyết giải thích lực hấp dẫn là sự uốn cong của không-thời gian. Theo lý thuyết này, các vật thể vũ trụ khổng lồ như các ngôi sao và hành tinh, những vật thể có khối lượng khổng lồ, làm cong cấu trúc không gian xung quanh chúng. Độ cong này quyết định các quỹ đạo mà các vật thể gần đó phải tuân theo, điều giải thích tại sao Trái Đất quay quanh Mặt Trời. Lý thuyết này cũng dự đoán sự tồn tại của sóng hấp dẫn, vốn là những gợn sóng trong không-thời gian gây ra bởi các vụ va chạm vũ trụ dữ dội. Các nhà khoa học làm việc tại đài quan sát LIGO cuối cùng đã phát hiện ra những gợn sóng khó nắm bắt này vào năm 2015, điều này đã xác nhận những dự đoán của Einstein và mở ra một cánh cửa mới vào vật lý thiên văn.',
+    keywordsEn: ['Einstein', 'revolutionized', 'general relativity', 'warping of spacetime', 'massive cosmic', 'fabric of space', 'curvature', 'gravitational waves', 'ripples', 'elusive', 'astrophysics'],
+    keywordsVi: ['Einstein', 'cách mạng hóa', 'tương đối tổng quát', 'uốn cong không-thời gian', 'vũ trụ khổng lồ', 'cấu trúc không gian', 'độ cong', 'sóng hấp dẫn', 'gợn sóng', 'khó nắm bắt', 'vật lý thiên văn'],
     vocabulary: [
-      { word: 'posit', ipa: '/ˈpɑː.zɪt/', meaning: 'thừa nhận, cho rằng (để lập luận)', example: 'Linguistic determinism posits that language shapes thought.' },
-      { word: 'convey', ipa: '/kənˈveɪ/', meaning: 'truyền tải, biểu đạt', example: 'Words are used to convey meaning.' },
-      { word: 'formulate', ipa: '/ˈfɔːr.mjə.leɪt/', meaning: 'hình thành, xây dựng công thức', example: 'It shapes the framework in which thoughts are formulated.' }
+      { word: 'warping', ipa: '/ˈwɔːr.pɪŋ/', meaning: 'sự uốn cong, biến dạng', example: 'Gravity is the warping of spacetime.' },
+      { word: 'curvature', ipa: '/ˈkɝː.və.tʃɚ/', meaning: 'độ cong', example: 'The curvature of the Earth.' },
+      { word: 'elusive', ipa: '/iˈluː.sɪv/', meaning: 'khó tìm thấy, khó nắm bắt', example: 'The answer remains elusive.' }
     ],
     grammar: [
-      { structure: 'not merely... but rather...', explanation: 'Không thuần túy chỉ là... mà đúng hơn là... (dùng để phủ nhận ý đơn giản và chuyển hướng sang ý quan trọng hơn).', example: 'Language does not merely serve as a medium, but rather shapes the conceptual framework.' }
+      { structure: 'Relative Clauses with "which" referring to a whole clause', explanation: 'Sử dụng "which" sau dấu phẩy để thay thế và bổ nghĩa cho toàn bộ nội dung của mệnh đề đứng trước.', example: '...detected these elusive ripples in 2015, which confirmed Einstein\'s predictions...' }
+    ]
+  },
+
+  // ================= L6 LESSONS (Scholar) =================
+  {
+    title: 'Triết lý về Bản ngã của Socrates (The Socratic Philosophy of Self) [NEW]',
+    levelCode: 'L6',
+    englishText: 'Rarely has any philosopher influenced Western thought as profoundly as Socrates, whose persistent questioning of social norms laid the foundation for modern ethics. Not only did he challenge the prevailing political dogmas of ancient Athens, but he also insisted that an unexamined life is not worth living. Central to his philosophical method was the pursuit of virtue through self-knowledge, a journey that required individuals to recognize their own ignorance.\n\nScarcely had Socrates begun his dialogue with the Sophists when it became clear that public definitions of justice were superficial and contradictory. Only by questioning their core assumptions could citizens achieve true wisdom. Under no circumstances did Socrates compromise his intellectual integrity, even when facing a death sentence from the Athenian court for allegedly corrupting the youth. Had he chosen to flee into exile, he would have undermined the very laws he swore to protect.\n\nLittle did his accusers realize that executing him would immortalize his teachings. No sooner had his disciple Plato written the dialogues than Socrates became the ultimate symbol of philosophical martyrdom. In his works, Plato preserved the Socratic method, showing that truth is not something to be taught, but rather something to be uncovered through dialogue.\n\nOnly when a society encourages open dissent and critical inquiry can it avoid the trap of collective complacency. Never before have these questions been more relevant than in today\'s fast-paced digital age, where social media algorithms often discourage critical thinking. Modern scholars continue to analyze his ideas, recognizing that self-reflection remains essential. Only through rigorous self-examination can a society prevent moral decay and build a just community.',
+    vietnameseText: 'Hiếm có triết gia nào ảnh hưởng sâu sắc đến tư tưởng phương Tây như Socrates, người mà việc liên tục đặt câu hỏi về các chuẩn mực xã hội đã đặt nền móng cho đạo đức học hiện đại. Không những ông thách thức các giáo điều chính trị phổ biến của Athens cổ đại, mà ông còn khẳng định rằng một cuộc đời không được phản tỉnh thì không đáng sống. Trọng tâm trong phương pháp triết học của ông là việc theo đuổi đức hạnh thông qua sự tự hiểu biết, một cuộc hành trình đòi hỏi các cá nhân phải nhận ra sự thiếu hiểu biết của chính mình.\n\nNgay khi Socrates bắt đầu cuộc đối thoại với các ngụy biện gia, người ta đã thấy rõ rằng các định nghĩa công khai về công lý là nông cạn và mâu thuẫn. Chỉ bằng cách đặt câu hỏi về các giả định cốt lõi của họ, các công dân mới có thể đạt được trí tuệ thực sự. Trong bất kỳ trường hợp nào, Socrates cũng không thỏa hiệp với sự liêm chính trí tuệ của mình, ngay cả khi đối mặt với án tử hình từ tòa án Athens vì bị cáo buộc làm hư hỏng giới trẻ. Nếu ông chọn chạy trốn lưu vong, ông đã hủy hoại chính những đạo luật mà ông đã thề sẽ bảo vệ.\n\nNhững kẻ buộc tội ông ít nhận ra rằng việc hành quyết ông sẽ bất tử hóa những lời dạy của ông. Ngay sau khi môn đồ của ông là Plato viết các cuộc đối thoại, Socrates đã trở thành biểu tượng tối cao của sự tuẫn đạo triết học. Trong các tác phẩm của mình, Plato đã bảo tồn phương pháp Socratic, chỉ ra rằng sự thật không phải là thứ để dạy, mà đúng hơn là thứ được khám phá thông qua đối thoại.\n\nChỉ khi một xã hội khuyến khích sự bất đồng quan điểm cởi mở và sự phản biện nghiêm túc, nó mới có thể tránh được cái bẫy của sự tự mãn tập thể. Chưa bao giờ những câu hỏi này lại phù hợp hơn trong thời đại kỹ thuật số nhịp độ nhanh ngày nay, nơi các thuật toán truyền thông xã hội thường làm nản lòng tư duy phản biện. Các học giả hiện đại tiếp tục phân tích các ý tưởng của ông, nhận ra rằng sự tự phản tỉnh vẫn là điều thiết yếu. Chỉ thông qua việc tự kiểm tra nghiêm ngặt, một xã hội mới có thể ngăn chặn sự suy đồi đạo đức và xây dựng một cộng đồng công bằng.',
+    keywordsEn: ['Socrates', 'philosophical dogmas', 'virtue', 'ignorance', 'Sophists', 'superficial', 'intellectual integrity', 'corrupting', 'exile', 'martyrdom', 'complacency', 'self-reflection', 'dissent'],
+    keywordsVi: ['Socrates', 'giáo điều triết học', 'đức hạnh', 'thiếu hiểu biết', 'ngụy biện gia', 'nông cạn', 'liêm chính trí tuệ', 'làm hư hỏng', 'lưu vong', 'tuẫn đạo', 'sự tự mãn', 'phản tỉnh', 'bất đồng quan điểm'],
+    vocabulary: [
+      { word: 'virtue', ipa: '/ˈvɝː.tʃuː/', meaning: 'đức hạnh, đức tính tốt', example: 'Patience is a great virtue.' },
+      { word: 'ignorance', ipa: '/ˈɪɡ.nɚ.əns/', meaning: 'sự vô tri, thiếu hiểu biết', example: 'We must fight ignorance with education.' },
+      { word: 'dissent', ipa: '/dɪˈsent/', meaning: 'sự bất đồng quan điểm, phản đối', example: 'In a democracy, dissent is allowed.' }
+    ],
+    grammar: [
+      { structure: 'Grammatical Inversion (Đảo ngữ ngữ pháp)', explanation: 'Đưa trợ động từ lên trước chủ ngữ khi có từ phủ định hoặc cụm giới từ giới hạn đứng đầu câu nhằm mục đích nhấn mạnh.', example: 'Rarely has any philosopher influenced... Under no circumstances did Socrates compromise...' }
     ]
   },
   {
-    title: 'Chinh phục Sao Hỏa (VSTEP C1 Mars Exploration & Colonization)',
-    levelCode: 'C1',
-    englishText: 'Since the dawn of civilization, humanity has looked up at the stars with a sense of wonder and curiosity. The launch of Sputnik 1 by the Soviet Union in 1957 marked the official beginning of the Space Age. This historic event catalyzed a fierce geopolitical competition between the world\'s superpowers. Shortly after, Yuri Gagarin became the first human to orbit the Earth in 1961. His courage inspired millions of people and proved that humans could survive in space. The ultimate achievement of this era was the Apollo 11 mission in 1969. Neil Armstrong and Buzz Aldrin successfully walked on the Moon, fulfilling a seemingly impossible dream. Their success demonstrated the power of human ingenuity and collective political will.\n\nFollowing the lunar missions, the focus of space agencies shifted toward long-term habitation in low Earth orbit. The construction of the International Space Station represented a milestone in global scientific cooperation. For over two decades, astronauts from various countries have conducted complex research on the station. They have studied microgravity, human biology, and material sciences under extreme conditions. These experiments have yielded invaluable data that cannot be replicated on Earth. Furthermore, the station has served as a testing ground for technologies required for deep space missions. Managing a complex laboratory in space requires constant maintenance and international support. It stands as a testament to what humanity can achieve when working toward shared goals.\n\nToday, the primary objective of space agencies and private aerospace companies is the exploration of Mars. Mars is considered the most habitable candidate in our solar system for future human colonization. However, establishing a permanent settlement on the Red Planet presents unprecedented environmental challenges. The Martian atmosphere is extremely thin, consisting mostly of carbon dioxide, which cannot support human respiration. Additionally, the lack of a strong global magnetic field exposes the surface to lethal solar radiation. Colonists would need to live in heavily shielded habitats and wear pressurized suits outdoors. Water must be extracted from ice sheet reserves hidden beneath the Martian soil. Growing crops would require sophisticated hydroponic systems protected from the harsh Martian climate.\n\nBeyond the technological requirements, colonizing Mars raises profound social and ethical dilemmas. Who will own the resources on Mars, and what laws will govern the new planetary citizens? Some critics argue that spending billions of dollars on space travel is unethical when many pressing problems remain unsolved on Earth. They believe we should prioritize poverty alleviation, environmental conservation, and healthcare before exploring other worlds. Conversely, proponents of space colonization assert that expanding our species to other planets is essential for long-term survival. They suggest that a catastrophic planetary event could wipe out humanity if we remain on a single planet. Therefore, space exploration is not a luxury, but rather an insurance policy for our future existence. It drives scientific innovation, inspires youth, and unites humanity under a shared vision.\n\nUltimately, the journey to Mars represents the next chapter in the great human adventure of exploration. The challenges ahead are immense, requiring technological innovations that do not yet exist. Yet, the spirit of curiosity that drove our ancestors to cross vast oceans will guide us to the stars. By striving to colonize Mars, we may learn how to better preserve our own home planet. The lessons learned in space will undoubtedly shape the future of human society on Earth. As we venture into the uncharted dark, we carry the hopes and dreams of all past generations.',
-    vietnameseText: 'Từ bình minh của nền văn minh, nhân loại đã ngước nhìn lên các ngôi sao với một niềm kinh ngạc và tò mò. Việc phóng vệ tinh Sputnik 1 của Liên Xô vào năm 1957 đã đánh dấu sự khởi đầu chính thức của Kỷ nguyên Vũ trụ. Sự kiện lịch sử này đã thúc đẩy một cuộc cạnh tranh địa chính trị khốc liệt giữa các siêu cường thế giới. Ngay sau đó, Yuri Gagarin đã trở thành người đầu tiên bay quanh quỹ đạo Trái đất vào năm 1961. Lòng dũng cảm của ông đã truyền cảm hứng cho hàng triệu người và chứng minh rằng con người có thể sinh tồn trong không gian. Thành tựu đỉnh cao của kỷ nguyên này là sứ mệnh Apollo 11 vào năm 1969. Neil Armstrong và Buzz Aldrin đã đi bộ thành công trên Mặt trăng, hoàn thành một giấc mơ tưởng chừng như không thể. Thành công của họ đã chứng minh sức mạnh của sự khéo léo của con người và ý chí chính trị tập thể.\n\nSau các sứ mệnh lên Mặt trăng, trọng tâm của các cơ quan vũ trụ chuyển sang việc cư trú lâu dài trên quỹ đạo Trái đất tầm thấp. Việc xây dựng Trạm Vũ trụ Quốc tế đại diện cho một cột mốc quan trọng trong sự hợp tác khoa học toàn cầu. Trong hơn hai thập kỷ, các phi hành gia từ nhiều quốc gia khác nhau đã tiến hành các nghiên cứu phức tạp trên trạm. Họ đã nghiên cứu về môi trường vi trọng lực, sinh học con người và khoa học vật liệu dưới các điều kiện khắc nghiệt. Những thí nghiệm này đã mang lại những dữ liệu vô giá không thể sao chép trên Trái đất. Hơn nữa, trạm đã phục vụ như một môi trường thử nghiệm cho các công nghệ cần thiết cho các sứ mệnh không gian sâu. Việc quản lý một phòng thí nghiệm phức tạp trong không gian đòi hỏi sự bảo trì liên tục và hỗ trợ quốc tế. Nó là một minh chứng cho những gì nhân loại có thể đạt được khi cùng hướng tới các mục tiêu chung.\n\nNgày nay, mục tiêu hàng đầu của các cơ quan vũ trụ và các công ty hàng không vũ trụ tư nhân là khám phá Sao Hỏa. Sao Hỏa được coi là ứng cử viên có khả năng sinh sống tốt nhất trong hệ mặt trời của chúng ta cho việc thuộc địa hóa của con người trong tương lai. Tuy nhiên, việc thiết lập một khu định cư lâu dài trên Hành tinh Đỏ đặt ra những thách thức môi trường chưa từng có. Khí quyển Sao Hỏa cực kỳ mỏng, bao gồm chủ yếu là khí carbon dioxide, không thể hỗ trợ quá trình hô hấp của con người. Ngoài ra, việc thiếu từ trường toàn cầu mạnh khiến bề mặt phải tiếp xúc với bức xạ mặt trời gây chết người. Những người định cư sẽ cần sống trong các môi trường sống được che chắn kỹ lưỡng và mặc các bộ đồ áp suất khi ở ngoài trời. Nước phải được chiết xuất từ các trữ lượng băng ẩn bên dưới lòng đất Sao Hỏa. Trồng trọt sẽ đòi hỏi các hệ thống thủy canh tinh vi được bảo vệ khỏi khí hậu khắc nghiệt của Sao Hỏa.\n\nVượt ra ngoài các yêu cầu công nghệ, việc thuộc địa hóa Sao Hỏa đặt ra các tình thế tiến thoái lưỡng nan sâu sắc về mặt xã hội và đạo đức. Ai sẽ sở hữu tài nguyên trên Sao Hỏa, và luật pháp nào sẽ quản lý những công dân hành tinh mới này? Một số nhà phê bình cho rằng việc chi hàng tỷ đô la cho du lịch vũ trụ là vô đạo đức khi nhiều vấn đề cấp bách vẫn chưa được giải quyết trên Trái đất. Họ tin rằng chúng ta nên ưu tiên xóa đói giảm nghèo, bảo tồn môi trường và chăm sóc sức khỏe trước khi khám phá các thế giới khác. Ngược lại, những người ủng hộ thuộc địa hóa vũ trụ khẳng định rằng việc mở rộng loài của chúng ta sang các hành tinh khác là điều cần thiết cho sự sống sót lâu dài. Họ gợi ý rằng một sự kiện hành tinh thảm khốc có thể xóa sổ nhân loại nếu chúng ta chỉ ở trên một hành tinh duy nhất. Do đó, khám phá không gian không phải là một thứ xa xỉ, mà đúng hơn là một chính sách bảo hiểm cho sự tồn tại trong tương lai của chúng ta. Nó thúc đẩy sự đổi mới khoa học, truyền cảm hứng cho giới trẻ và đoàn kết nhân loại dưới một tầm nhìn chung.\n\nCuối cùng, hành trình đến Sao Hỏa đại diện cho chương tiếp theo trong cuộc phiêu lưu khám phá vĩ đại của con người. Các thách thức phía trước là vô cùng to lớn, đòi hỏi những đổi mới công nghệ chưa tồn tại. Dù vậy, tinh thần tò mò đã thúc đẩy tổ tiên chúng ta vượt qua những đại dương bao la sẽ dẫn đường cho chúng ta đến các ngôi sao. Bằng cách nỗ lực thuộc địa hóa Sao Hỏa, chúng ta có thể học cách bảo tồn hành tinh quê hương của chính mình tốt hơn. Các bài học rút ra trong không gian chắc chắn sẽ định hình tương lai của xã hội loài người trên Trái đất. Khi chúng ta dấn thân vào bóng tối chưa được khám phá, chúng ta mang theo hy vọng và giấc mơ của tất cả các thế hệ đi trước.',
-    keywordsEn: ['civilization', 'Sputnik 1', 'Space Age', 'catalyzed', 'Yuri Gagarin', 'orbit', 'Apollo 11', 'ingenuity', 'habitation', 'International Space Station', 'cooperation', 'microgravity', 'replicated', 'deep space', 'testament', 'Mars', 'colonization', 'respiration', 'magnetic field', 'solar radiation', 'shielded', 'hydroponic', 'dilemmas', 'alleviation', 'catastrophic', 'insurance policy', 'uncemented', 'curiosity', 'resilience', 'uncharted'],
-    keywordsVi: ['nền văn minh', 'Sputnik 1', 'Kỷ nguyên Vũ trụ', 'thúc đẩy', 'Yuri Gagarin', 'quỹ đạo', 'Apollo 11', 'sự khéo léo', 'cư trú', 'Trạm Vũ trụ Quốc tế', 'hợp tác', 'vi trọng lực', 'sao chép', 'không gian sâu', 'minh chứng', 'Sao Hỏa', 'thuộc địa hóa', 'hô hấp', 'từ trường', 'bức xạ mặt trời', 'che chắn', 'thủy canh', 'tiến thoái lưỡng nan', 'xóa đói giảm nghèo', 'thảm khốc', 'chính sách bảo hiểm', 'chưa được khám phá', 'tò mò', 'khả năng phục hồi', 'bóng tối'],
+    title: 'Báo chí trong Kỷ nguyên Số (Journalism in the Digital Age) [NEW]',
+    levelCode: 'L6',
+    englishText: 'Never before has the field of journalism experienced such a dramatic transformation as it has in the past decade. Not only has the rise of digital platforms completely decentralized the distribution of news, but it has also challenged the traditional business models of print newspapers. Today, citizens can access information instantly, bypassing traditional gatekeepers entirely.\n\nScarcely had the internet become ubiquitous when traditional media organizations began to struggle with declining advertisement revenues. Only by adapting to digital subscriptions and multimedia storytelling could these agencies survive in a highly competitive market. Under no circumstances should journalists sacrifice accuracy for speed, yet the pressure to generate clicks has frequently compromised professional ethics.\n\nLittle did early tech pioneers anticipate that social media platforms would become the primary source of news for billions of people. No sooner had these algorithms begun to prioritize high-engagement content than misinformation began to spread rapidly across the web. Consequently, the public\'s trust in mainstream journalism has declined to historic lows.\n\nOnly when media literacy is widely taught can society effectively combat the spread of fake news. Had publishers invested more resources in investigative journalism rather than clickbait headlines, they might have maintained their credibility. Today, the role of professional journalists remains vital to democracy. Only through independent and objective reporting can the press continue to hold powerful institutions accountable and protect the public interest.',
+    vietnameseText: 'Chưa bao giờ lĩnh vực báo chí trải qua một sự thay đổi mạnh mẽ như trong thập kỷ qua. Sự trỗi dậy của các nền tảng kỹ thuật số không chỉ phi tập trung hóa hoàn toàn việc phân phối tin tức, mà nó còn thách thức các mô hình kinh doanh truyền thống của các tờ báo in. Ngày nay, người dân có thể tiếp cận thông tin ngay lập tức, bỏ qua hoàn toàn các cơ quan kiểm duyệt truyền thống.\n\nNgay khi internet trở nên phổ biến, các tổ chức truyền thông truyền thống đã bắt đầu phải chật vật với doanh thu quảng cáo giảm sút. Chỉ bằng cách thích ứng với đăng ký kỹ thuật số và kể chuyện bằng đa phương tiện, các cơ quan này mới có thể tồn tại trong một thị trường cạnh tranh khốc liệt. Trong bất kỳ hoàn cảnh nào, các nhà báo cũng không nên hy sinh sự chính xác để đổi lấy tốc độ, tuy nhiên áp lực tạo ra lượt nhấp chuột đã thường xuyên làm tổn hại đến đạo đức nghề nghiệp.\n\nCác nhà tiên phong công nghệ ban đầu ít ngờ rằng các nền tảng mạng xã hội sẽ trở thành nguồn tin tức chính cho hàng tỷ người. Ngay khi các thuật toán này bắt đầu ưu tiên nội dung có tính tương tác cao, thông tin sai lệch bắt đầu lan truyền nhanh chóng trên mạng. Do đó, niềm tin của công chúng vào báo chí chính thống đã giảm xuống mức thấp lịch sử.\n\nChỉ khi kỹ năng hiểu biết về truyền thông được giảng dạy rộng rãi, xã hội mới có thể chống lại sự lan truyền của tin gia một cách hiệu quả. Nếu các nhà xuất bản đầu tư nhiều tài nguyên hơn vào báo chí điều tra thay vì các tiêu đề giật gân, họ có thể đã duy trì được uy tín của mình. Ngày nay, vai trò của các nhà báo chuyên nghiệp vẫn rất quan trọng đối với nền dân chủ. Chỉ thông qua báo cáo độc lập và khách quan, báo chí mới có thể tiếp tục quy trách nhiệm cho các tổ chức quyền lực và bảo vệ lợi ích công cộng.',
+    keywordsEn: ['journalism', 'decentralized', 'gatekeepers', 'ubiquitous', 'subscriptions', 'multimedia', 'generate clicks', 'compromised', 'algorithms', 'misinformation', 'credibility', 'clickbait'],
+    keywordsVi: ['báo chí', 'phi tập trung', 'cơ quan kiểm duyệt', 'phổ biến', 'đăng ký', 'đa phương tiện', 'tạo lượt click', 'tổn hại', 'thuật toán', 'tin sai lệch', 'uy tín', 'giật gân'],
     vocabulary: [
-      { word: 'ingenuity', ipa: '/ˌɪn.dʒəˈnjuː.ə.t̬i/', meaning: 'sự khéo léo, tài tình', example: 'It took great human ingenuity to build Apollo 11.' },
-      { word: 'replicate', ipa: '/ˈrep.lɪ.keɪt/', meaning: 'sao chép, tái tạo lại', example: 'This experiment is hard to replicate.' },
-      { word: 'testament', ipa: '/ˈtes.tə.mənt/', meaning: 'minh chứng, bằng chứng', example: 'The building is a testament to their wealth.' }
+      { word: 'decentralized', ipa: '/diːˈsen.trə.laɪzd/', meaning: 'phi tập trung hóa', example: 'Crypto uses a decentralized network.' },
+      { word: 'ubiquitous', ipa: '/juːˈbɪk.wə.t̬əs/', meaning: 'nhan nhản, có mặt ở khắp mọi nơi', example: 'Mobile phones are ubiquitous now.' },
+      { word: 'credibility', ipa: '/ˌkred.əˈbɪl.ə.t̬i/', meaning: 'sự tín nhiệm, độ uy tín', example: 'The scandal damaged the newspaper\'s credibility.' }
     ],
     grammar: [
-      { structure: 'stands as a testament to + N/V-ing', explanation: 'Đứng sừng sững như một minh chứng rõ ràng cho điều gì.', example: 'It stands as a testament to what humanity can achieve.' },
-      { structure: 'exposes + object + to + Noun', explanation: 'Khiến cho đối tượng chịu tác động/nguy hiểm bởi điều gì.', example: 'It exposes the surface to lethal solar radiation.' }
+      { structure: 'Inversion with negative adverbs (Đảo ngữ trạng từ phủ định)', explanation: 'Khi đặt các trạng từ phủ định như Never before, Scarcely, Little, No sooner, Only by lên đầu câu, mệnh đề chính phải đảo trợ động từ lên trước chủ ngữ.', example: 'Never before has the field experienced... Little did early tech pioneers anticipate...' }
+    ]
+  },
+
+  // ================= L7 LESSONS (Native) =================
+  {
+    title: 'Thành ngữ trong Giao tiếp (Common English Idioms) [NEW]',
+    levelCode: 'L7',
+    englishText: 'Don\'t beat around the bush; just bite the bullet and tell the truth.',
+    vietnameseText: 'Đừng nói vòng vo tam quốc nữa; hãy cắn răng chịu đựng khó khăn và nói ra sự thật đi.',
+    keywordsEn: ['beat around the bush', 'bite the bullet'],
+    keywordsVi: ['nói vòng vo', 'cắn răng chịu đựng'],
+    vocabulary: [
+      { word: 'beat around the bush', ipa: '/biːt əˈraʊnd ðə bʊʃ/', meaning: 'nói vòng vo, né tránh chủ đề chính', example: 'Stop beating around the bush!' },
+      { word: 'bite the bullet', ipa: '/baɪt ðə ˈbʊl.ɪt/', meaning: 'chấp nhận đối mặt với một tình huống khó chịu', example: 'I had to bite the bullet and accept the truth.' }
+    ],
+    grammar: [
+      { structure: 'Imperative sentence with idioms', explanation: 'Câu mệnh lệnh kết hợp sử dụng các thành ngữ ẩn dụ phổ biến của người bản xứ.', example: 'Don\'t beat around the bush.' }
+    ]
+  },
+  {
+    title: 'Tiếng lóng thế hệ trẻ (Modern Slang in Action) [NEW]',
+    levelCode: 'L7',
+    englishText: 'That new tech startup is fire, but their marketing strategy is kind of mid.',
+    vietnameseText: 'Công ty khởi nghiệp công nghệ mới đó cực kỳ chất, nhưng chiến lược tiếp thị của họ thì hơi bình thường.',
+    keywordsEn: ['fire', 'mid'],
+    keywordsVi: ['cực kỳ chất', 'hơi bình thường'],
+    vocabulary: [
+      { word: 'fire', ipa: '/faɪr/', meaning: 'cực kỳ tuyệt vời, xuất sắc (slang)', example: 'Her new album is fire.' },
+      { word: 'mid', ipa: '/mɪd/', meaning: 'trung bình, không có gì nổi bật (slang)', example: 'The movie was kind of mid.' }
+    ],
+    grammar: [
+      { structure: 'Slang-infused informal structure', explanation: 'Cấu trúc câu giao tiếp thân mật sử dụng tính từ lóng thay cho các tính từ thông thường.', example: 'That startup is fire... strategy is mid.' }
+    ]
+  },
+  {
+    title: 'Trích đoạn Văn học: Gatsby Vĩ đại (The Great Gatsby Extract) [NEW]',
+    levelCode: 'L7',
+    englishText: 'So we beat on, boats against the current, borne back ceaselessly into the past.',
+    vietnameseText: 'Thế là chúng ta vẫn cứ tiến tới, những con thuyền ngược dòng nước, không ngừng bị đẩy lùi về quá khứ.',
+    keywordsEn: ['beat on', 'current', 'borne back', 'ceaselessly'],
+    keywordsVi: ['tiến tới', 'dòng nước', 'bị đẩy lùi', 'không ngừng'],
+    vocabulary: [
+      { word: 'borne', ipa: '/bɔːrn/', meaning: 'được mang đi, cuốn đi (quá khứ phân từ của bear)', example: 'The boat was borne away by the waves.' },
+      { word: 'ceaselessly', ipa: '/ˈsiːs.ləs.li/', meaning: 'không ngừng nghỉ, liên tục', example: 'She worked ceaselessly.' }
+    ],
+    grammar: [
+      { structure: 'Metaphorical literary sentence', explanation: 'Cấu trúc câu văn học giàu tính ẩn dụ, nhịp điệu và ngôn từ cô đọng.', example: 'boats against the current, borne back ceaselessly...' }
+    ]
+  },
+  {
+    title: 'Dưới hiên nhà (Under the Weather) [NEW]',
+    levelCode: 'L7',
+    englishText: 'I was feeling under the weather, so I decided to call it a day.',
+    vietnameseText: 'Tôi cảm thấy không được khỏe, vì vậy tôi đã quyết định dừng công việc lại.',
+    keywordsEn: ['under the weather', 'call it a day'],
+    keywordsVi: ['không được khỏe', 'dừng công việc lại'],
+    vocabulary: [
+      { word: 'under the weather', ipa: '/ˈʌn.dɚ ðə ˈweð.ɚ/', meaning: 'ốm, mệt mỏi, không khỏe', example: 'I\'m under the weather today.' },
+      { word: 'call it a day', ipa: '/kɑːl ɪt eɪ deɪ/', meaning: 'dừng làm việc gì đó (sau một ngày mệt mỏi)', example: 'Let\'s call it a day.' }
+    ],
+    grammar: [
+      { structure: 'So coordinate clause', explanation: 'Mệnh đề quan hệ nguyên nhân kết quả liên kết bằng liên từ "so".', example: 'I was feeling under the weather, so I decided to...' }
+    ]
+  },
+  {
+    title: 'Thành ngữ mưa gió (Raining Cats and Dogs) [NEW]',
+    levelCode: 'L7',
+    englishText: 'It was raining cats and dogs, but we still hit the road.',
+    vietnameseText: 'Trời mưa như trút nước, nhưng chúng tôi vẫn khởi hành lên đường.',
+    keywordsEn: ['raining cats and dogs', 'hit the road'],
+    keywordsVi: ['mưa như trút nước', 'khởi hành lên đường'],
+    vocabulary: [
+      { word: 'raining cats and dogs', ipa: '/reɪnɪŋ kæts ænd dɑːɡz/', meaning: 'mưa rất to, mưa như trút nước', example: 'It was raining cats and dogs outside.' },
+      { word: 'hit the road', ipa: '/hɪt ðə roʊd/', meaning: 'bắt đầu lên đường, khởi hành', example: 'We should hit the road before sunset.' }
+    ],
+    grammar: [
+      { structure: 'But adversative clause', explanation: 'Liên từ kết hợp "but" dùng kết nối hai mệnh đề thể hiện sự nhượng bộ/đối lập.', example: 'It was raining... but we still hit the road.' }
     ]
   }
 ];
@@ -429,7 +512,7 @@ router.get('/', async (req, res) => {
 
     res.json({
       success: true,
-      message: 'Database seeded successfully from Express server!',
+      message: 'Database seeded successfully with the game-like 7-level system!',
       levelsSeededCount: levelsData.length,
       lessonsSeededCount: lessonsData.length,
     });
