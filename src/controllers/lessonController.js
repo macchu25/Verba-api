@@ -38,6 +38,7 @@ export const submitTranslation = async (req, res) => {
     // Save Progress
     const progress = await Progress.create({
       lessonId: lesson._id,
+      userId: req.user._id,
       direction,
       userTranslation,
       score: evaluation.score,

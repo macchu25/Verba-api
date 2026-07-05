@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import levelRoutes from './routes/levelRoutes.js';
 import lessonRoutes from './routes/lessonRoutes.js';
 import seedRoutes from './routes/seedRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -23,6 +24,7 @@ app.use(cors({
 app.use(express.json());
 
 // API Routes
+app.use('/api/auth', authRoutes);
 app.use('/api/levels', levelRoutes);
 app.use('/api/lessons', lessonRoutes);
 app.use('/api/seed', seedRoutes);

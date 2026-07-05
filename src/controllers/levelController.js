@@ -7,7 +7,7 @@ export const getLevelsAndLessons = async (req, res) => {
     const [levels, lessons, progress] = await Promise.all([
       Level.find({}).sort({ order: 1 }),
       Lesson.find({}),
-      Progress.find({}).sort({ completedAt: -1 })
+      Progress.find({ userId: req.user._id }).sort({ completedAt: -1 })
     ]);
 
     res.json({
@@ -23,7 +23,7 @@ export const getLevelsAndLessons = async (req, res) => {
 
 export const resetProgress = async (req, res) => {
   try {
-    await Progress.deleteMany({});
+    await Progress.deleteMany({ userId: req.user._id });
     res.json({ success: true, message: 'All progress reset successfully!' });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
